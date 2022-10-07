@@ -1,27 +1,25 @@
 <script setup>
-	import { store } from './store.js'
-	import { jsonp } from 'vue-jsonp'
+import { store } from './store.js'
+import { jsonp } from 'vue-jsonp'
 
-	import Home from './components/Home.vue'
+import home from './components/pages/home/home.vue'
 import topBarTree from 'components/common/TopBar/topBar.json'
 
-
-
-	jsonp('//pv.sohu.com/cityjson?ie=utf-8', {}, 1000).then(res => {
-		for (const item of topBarTree.areas) {
-			if(item.name.indexOf(returnCitySN.cname.slice(0, 2)) > -1){
-				store.area = item.id
-				continue
-			}
+jsonp('//pv.sohu.com/cityjson?ie=utf-8', {}, 1000).then(res => {
+	for (const item of topBarTree.areas) {
+		if (item.name.indexOf(returnCitySN.cname.slice(0, 2)) > -1) {
+			store.area = item.id
+			continue
 		}
-	}).catch(err => {
-		for (const item of topBarTree.areas) {
-			if(item.name.indexOf(returnCitySN.cname.slice(0, 2)) > -1){
-				store.area = item.id
-				continue
-			}
+	}
+}).catch(err => {
+	for (const item of topBarTree.areas) {
+		if (item.name.indexOf(returnCitySN.cname.slice(0, 2)) > -1) {
+			store.area = item.id
+			continue
 		}
-	})
+	}
+})
 </script>
 
 <template>
@@ -29,5 +27,5 @@ import topBarTree from 'components/common/TopBar/topBar.json'
 </template>
 
 <style>
-	
+
 </style>
