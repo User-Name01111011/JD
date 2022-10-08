@@ -36,19 +36,14 @@
 			<li v-show="win.scrollY > 670"><span class="elevator-totop-icon"></span>顶部</li>
 		</ul>
 		<div class="fs">
-			<nav class="cate">
-				<ul class="menu" @mouseleave="menuLeave">
-					<li v-for="(itemp, index) of menu"
-						@mouseenter="menuLiEnter(index)"
-						class="menu-item">
+			<nav class="cate" @mouseleave="cateLeave">
+				<ul class="menu">
+					<li v-for="(itemp, index) of menu" @mouseenter="menuLiEnter(index)" class="menu-item">
 						<span v-for="itemc of itemp"><a :href="itemc.href">{{itemc.name}}</a></span>
 					</li>
 				</ul>
-				<div class="cate-dropdown-list" 
-					v-show="cateDropdownIndex > -1"
-					@mouseleave="cateDropdownLeave">
-					<div v-for="(cateDropdownItem, index) of cateDropdown" 
-						v-show="index == cateDropdownIndex" 
+				<div class="cate-dropdown-list" v-show="cateDropdownIndex > -1">
+					<div v-for="(cateDropdownItem, index) of cateDropdown" v-show="index == cateDropdownIndex"
 						class="cate-dropdown-item">
 						<div class="part-content">
 							<div class="cate-channel">
@@ -76,6 +71,29 @@
 					</div>
 				</div>
 			</nav>
+			<div class="center-slider">
+				<button class="slider-navigation prev">&lt;</button>
+				<button class="slider-navigation next">&gt;</button>
+				<ul class="list">
+					<li v-for="slide of centerSliders"
+						class="item">
+						<a :href="slide.href" target="_blank"><img :src="slide.src" alt=""></a>
+					</li>
+				</ul>
+				<ul class="pagination">
+					<li v-for="item of centerSliders.length"></li>
+				</ul>
+			</div>
+			<div class="aside-slider">
+				<button class="slider-navigation prev">&lt;</button>
+				<button class="slider-navigation next">&gt;</button>
+				<ul class="list">
+					<li v-for="slide of asideSliders"
+						class="item">
+						<a v-for="slideItem of slide" :href="slideItem.href" target="_blank"><img :src="slideItem.src" alt=""></a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</main>
 </template>
@@ -84,34 +102,37 @@
 import TopBar from 'components/common/TopBar/topBar.vue';
 import HomeHeader from './homeHeader.vue';
 import { store } from '@/store.js'
-import { cateDropdown, menu, promotionalTop } from './home.json'
+import { cateDropdown, menu, promotionalTop, centerSliders, asideSliders } from './home.json'
+import { MySliders } from './mySliders'
 
-import { ref, reactive, onUpdated, watch } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import $ from 'jquery'
 
 let isPromotionalTop = ref(true)
 
 let win = ref(window)
 
-let isCateLeave = ref(true)
 let cateDropdownIndex = ref(-1)
 
-function menuLiEnter(index){
-	isCateLeave.value = false
+function menuLiEnter(index) {
 	cateDropdownIndex.value = index
 }
-function menuLeave(e){
-	if(e.toElement.className != '' && $("." + e.toElement.className + "").parents('.cate').length > 0)return
-	isCateLeave.value = true
+function cateLeave(e) {
+	if (e.toElement.className != '' && $("." + e.toElement.className + "").parents('.cate').length > 0) return
+	cateDropdownIndex.value = -1
 }
-function cateDropdownLeave(e){
-	if(e.toElement.className != '' && $("." + e.toElement.className + "").parents('.cate').length > 0)return
-	isCateLeave.value = true
-}
-watch(isCateLeave, ()=>{
-	if(isCateLeave.value){
-		cateDropdownIndex.value = -1
-	}
+
+MySliders({
+	el: '.center-slider',
+	pause: true,
+	navigation: true
+})
+
+MySliders({
+	el: '.aside-slider',
+	pause: true,
+	delay: 5000,
+	navigation: true
 })
 </script>
 
@@ -233,6 +254,7 @@ watch(isCateLeave, ()=>{
 
 	.cate {
 		width: 190px;
+		height: 100%;
 		position: relative;
 	}
 
@@ -277,6 +299,7 @@ watch(isCateLeave, ()=>{
 		box-shadow: 2px 0 5px rgb(0 0 0 / 30%);
 		-webkit-transition: top .25s ease;
 		transition: top .25s ease;
+		z-index: 9;
 	}
 
 	.cate-dropdown-item {
@@ -358,12 +381,14 @@ watch(isCateLeave, ()=>{
 		.cate-brand {
 			@include flex-wrap;
 			justify-content: space-between;
+
 			li {
 				overflow: hidden;
 				width: 83px;
 				height: 35px;
 				background-color: #e7e7e7;
 				margin: 0 0 1px;
+
 				img {
 					width: 100%;
 					height: 100%;
@@ -371,15 +396,162 @@ watch(isCateLeave, ()=>{
 				}
 			}
 		}
+
 		.cate-promotion {
 			width: 100%;
 			margin: 10px 0 1px;
 			height: 134px;
 			background-color: #e7e7e7;
+
 			img {
 				width: 100%;
 				height: 100%;
 			}
+		}
+	}
+}
+
+.center-slider {
+	width: 590px;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+
+	.item {
+		width: 590px;
+		height: 470px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: opacity 300ms ease-in-out 0s;
+		opacity: 0;
+		z-index: 0;
+
+		&.active {
+			opacity: 1;
+			z-index: 1;
+		}
+	}
+	.pagination {
+		display: flex;
+		z-index: 2;
+		position: absolute;
+    left: 30px;
+    bottom: 20px;
+    -webkit-animation: skeletonShow .2s ease .1s both;
+    animation: skeletonShow .2s ease .1s both;
+		li {
+			width: 8px;
+			height: 8px;
+			margin-right: 4px;
+			border: 1px solid rgba(0,0,0,.05);
+			background: rgba(255,255,255,.4);
+			margin-right: 4px;
+			border-radius: 50%;
+			-webkit-transition: background .2s ease;
+			transition: background .2s ease;
+			&.active{
+				width: 9px;
+				height: 9px;
+				background-color: #fff;
+				border: 3px solid rgba(0,0,0,.1);
+				margin-top: -3px;
+			}
+		}
+	}
+}
+
+.slider-navigation {
+	position: absolute;
+	top: 50%;
+	border-radius: 0;
+	width: 25px;
+	height: 35px;
+	line-height: 35px;
+	background-color: rgba(0, 0, 0, .15);
+	margin-top: -20px;
+	z-index: 2;
+	border: none;
+	outline: none;
+	-webkit-transition: background-color .2s ease;
+	transition: background-color .2s ease;
+	cursor: pointer;
+	font-size: 20px;
+	text-align: left;
+	color: rgba(255, 255, 255, .8);
+
+	&.prev {
+		left: 0;
+
+		border: {
+			top-right-radius: 18px;
+			bottom-right-radius: 18px;
+		}
+
+		;
+		text-indent: 5px;
+	}
+
+	&.next {
+		right: 0;
+
+		border: {
+			top-left-radius: 18px;
+			bottom-left-radius: 18px;
+		}
+
+		;
+		text-indent: 9px;
+	}
+
+	&:hover {
+		color: #fff;
+		background-color: rgba(0, 0, 0, .4);
+	}
+}
+
+.aside-slider {
+	width: 190px;
+	height: 100%;
+	overflow: hidden;
+	transition: opacity 300ms ease-in-out 0s;
+	position: relative;
+
+	&:hover {
+		.slider-navigation {
+			opacity: 1;
+		}
+	}
+
+	.slider-navigation {
+		opacity: 0;
+	}
+
+	.list {
+		height: 100%;
+	}
+
+	.item {
+		@include img-hover;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+		opacity: 0;
+		z-index: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: opacity 300ms ease-in-out 0s;
+
+		&.active {
+			opacity: 1;
+			z-index: 1;
+		}
+
+		img {
+			width: 100%;
+			height: 150px;
 		}
 	}
 }
