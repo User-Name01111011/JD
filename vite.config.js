@@ -20,8 +20,8 @@ export default defineConfig({
       replacement: path.resolve(__dirname, 'src/components')
     }]
   },
-  plugins: [vue()],
   server: {
     open: true
-  }
+  },
+  plugins: [vue()]
 })

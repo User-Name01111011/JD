@@ -165,7 +165,6 @@ const props = defineProps(['scrollY'])
 
   .center {
     @include flex-wrap;
-    justify-content: right;
     width: 800px;
     padding: 15px 0 0;
     overflow: hidden;
@@ -207,6 +206,7 @@ const props = defineProps(['scrollY'])
   height: 32px;
   border: 2px solid #e2231a;
   background: #fff;
+  margin: 0 0 0 65px;
 
   .input {
     padding: 2px 0 2px 17px;
@@ -334,7 +334,7 @@ const props = defineProps(['scrollY'])
   white-space: nowrap;
   width: 550px;
   height: 20px;
-  margin: 2px 152px 0 0;
+  margin: 2px 152px 0 65px;
   line-height: 20px;
 
   a {

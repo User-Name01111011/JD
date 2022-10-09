@@ -197,9 +197,10 @@ function areaClick(id) {
   }
 
   .iconfont {
+    display: inline-block;
     width: 12px;
     height: 12px;
-    margin: 0 0 0 4px;
+    margin: 0 -3px 0 4px;
   }
 
   .dd {
@@ -470,6 +471,7 @@ function areaClick(id) {
   background-color: #fff;
   border: 1px solid #cfcfcf;
   border-bottom: 3px solid #60575a;
+  z-index: 9;
 
   &:before {
     border-color: transparent transparent #fff;

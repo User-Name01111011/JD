@@ -1,8 +1,8 @@
 {
   "promotionalTop": {
     "href": "//ccc-x.jd.com/dsp/nc?ext=aHR0cHM6Ly9wcm8uamQuY29tL21hbGwvYWN0aXZlL2tXREhjS3VmWXNDOGZEZEhXU0I0eDRLeTg2Zy9pbmRleC5odG1sP2JhYmVsQ2hhbm5lbD10dHQz&log=bn7oTskfqR2Y2D4vuZEfWn9vlyBDRy2msniSxsGunVZJK6TyQQzDrGy0xHqQOyftqo-2IeAbilBFOG-OOSVqSbTNbJWk2Dw4M_zL0uBKaqqykmuBftR9xf6hekwjKYaQ8BPr7IwOyX6QFVuzMzl4q7kUm2nMO1zOt_MQiDMwrLp3SvNROl8RcQczopuA1EfXBybaWbuSX4mEaTKPZLwI2uxnAFt5SzZzP1FElga9PEAVQYY1EZorJVqLE-XqtdVbTErx5Rsy5BYppenZdyiu0YIG_ijnewiFiDQxVu4GRTGyTrPTqZRDQOEpWL6m_MLuXtxteF1CWpZmJ_UucVs4lgpDSSvXAny3rN9ywHR-wxRNwlji80xFhEGuDt_u7pUUQjpjBrpR8J3MPu5bK9YnIlnsxFf7tP2D2UUANv0nXwXu7cTotrwX-_e9QX2ERu_BBxdM-2cy7n05JAuE2EQIWKHu5jZ24uu1Iuu8TWT5tBePMZicCP5WqExS7cPCVfXw_Zw99QXKajjUx7zNWZfhXWDaM2f_Is2CxRml7Qk1y64VpkShlQ8qtWU58zUm-7P21iBEqpme_kk35wEnHoXJdS3k9BUkS4GFo3Bd7P-rtgBNEhdFf03rjpT4PDl5bQhVcAVEgE7CzHj2BquHqA5MB5SocYAPNSqoVvenJxoBP6uMr_FehA9KDMjf3jykDNWf6rrGelS3KjI6EgywevVaVf_yIFOdrHWUyiYeK81Ef7h4aPcbOrrU86tO4lRdgaT3j0HX54RoWvNwlDC0mZlv6HaC_xEZpCDi68BN8WWFZ6UuQFltjBxgE-xcs0K_UIARjThw7y844PRtfOy0Zz0aKZXAGzepypm5ytYcO3_MDQMZXXAuXjQ9Fq3mRVE_rIBriLiJeFJpFmnvJlo8q7wlKKY2ktsCL0VRBy7Zck7844OGc2oweKLjnJIV6LcMgJDLaZ_Icru6ETk5U1r0Yjtt6-QP-qkk-Iu42ZXKeCNDksLiCfsjWbl_Zxz7ATCBTF2X&v=404",
-    "style": "background-color: rgb(7, 37, 110);",
-    "src": "//img11.360buyimg.com/pop/jfs/t1/154509/36/26418/91810/632c38c5E043cd40c/8050368fd42c7b97.jpg.avif"
+    "style": "background-color: rgb(214, 5, 4);",
+    "src": "//img20.360buyimg.com/babel/jfs/t1/158533/8/31259/16713/63419fdeE7c00b90c/db07e2d074afaef7.jpg.avif"
   },
   "cateDropdown": [
     {
@@ -1497,5 +1497,101 @@
         "src": "//img13.360buyimg.com/babel/s380x300_jfs/t1/96983/40/21058/99053/61d57a93Ed5d47c2f/ffce68b5ad102f55.png.avif"
       }
     ]
+  ],
+  "newsList": [
+    {
+      "tag": "热议",
+      "name": "锻炼宝宝的手眼协调能力，我有都乐蓝莓。",
+      "href": "#"
+    },
+    {
+      "tag": "最新",
+      "name": "水莲花大闸蟹，蟹黄丰满，肉嫩鲜美！",
+      "href": "#"
+    },
+    {
+      "tag": "最新",
+      "name": "小体积有大容量！家用冰箱就要这么选～",
+      "href": "#"
+    },
+    {
+      "tag": "HOT",
+      "name": "洗烘一体机和洗烘套装二选一，明白人都选洗烘套装！",
+      "href": "#"
+    }
+  ],
+  "services": [
+    {
+      "name": "礼品卡",
+      "href": "#",
+      "src": "https://m.360buyimg.com/babel/jfs/t1/57014/6/10297/815/5d773a07Ec7a61fc9/97917a2daa34be0f.png",
+      "hoverSrc": "https://m.360buyimg.com/babel/jfs/t1/55911/31/402/858/5cd4f23eE6f536460/5da079255c6dfabe.png"
+    },
+    {
+      "name": "企业购",
+      "href": "#",
+      "src": "https://m.360buyimg.com/babel/jfs/t1/40738/20/14562/826/5d773a01E09eb8121/d6f3909618c6307a.png",
+      "hoverSrc": "https://m.360buyimg.com/babel/jfs/t1/45316/3/388/884/5cd4f25eEea4c67ed/671f7c186c5e9b01.png"
+    },
+    {
+      "name": "话费",
+      "href": "#",
+      "src": "https://m.360buyimg.com/babel/jfs/t1/64347/37/9953/720/5d7739a6Ef5f451d6/4e2bc2d96b0fbbec.png",
+      "hoverSrc": "https://m.360buyimg.com/babel/jfs/t1/45423/33/385/778/5cd4f265E442a9342/0aff0a42cece09ee.png"
+    },
+    {
+      "name": "加油卡",
+      "href": "#",
+      "src": "https://m.360buyimg.com/babel/jfs/t1/71890/14/9897/3048/5d7739ddE93eb94f8/f1f6dc5c207329f9.png",
+      "hoverSrc": "https://m.360buyimg.com/babel/jfs/t1/36002/35/9106/3311/5cd4f1bdE06ff07ed/9570fdd46ecd3a76.png"
+    },
+    {
+      "name": "游戏",
+      "href": "#",
+      "src": "https://m.360buyimg.com/babel/jfs/t1/50019/25/10190/3699/5d7739d7Ed503c6cc/6aa3afbe6c3a0951.png",
+      "hoverSrc": "https://m.360buyimg.com/babel/jfs/t1/57520/8/375/4092/5cd4f1d8Ea1266047/1c590322ece537ba.png"
+    },
+    {
+      "name": "机票",
+      "href": "#",
+      "src": "https://m.360buyimg.com/babel/jfs/t1/49654/24/10325/2901/5d7739caE0db5e87b/d9d908ad415a5265.png",
+      "hoverSrc": "https://m.360buyimg.com/babel/jfs/t1/34261/15/10242/3120/5cd4f256E10257aba/8f3f63ae04ff19af.png"
+    },
+    {
+      "name": "白条",
+      "href": "#",
+      "src": "https://m.360buyimg.com/babel/jfs/t1/56296/3/10260/1443/5d7739f3E233abc53/e6976f3cb30c9a8a.png",
+      "hoverSrc": "https://m.360buyimg.com/babel/jfs/t1/39983/24/6834/1596/5cd4f247E8cf89f1e/b8a8418d5418f471.png"
+    },
+    {
+      "name": "众筹",
+      "href": "#",
+      "src": "https://m.360buyimg.com/babel/jfs/t1/51584/31/10221/1685/5d7739e7E1adb25cd/1d0957d7f2ae01a2.png",
+      "hoverSrc": "https://m.360buyimg.com/babel/jfs/t1/50929/1/374/1847/5cd4f1eaE5daf90db/cebbff76b25dc22e.png"
+    },
+    {
+      "name": "五金城",
+      "href": "#",
+      "src": "https://m.360buyimg.com/babel/jfs/t1/9966/19/18575/2703/62fb7416E91849618/14a4b81a50f2a535.png",
+      "hoverSrc": "https://img12.360buyimg.com/imagetools/jfs/t1/164234/18/29348/2711/62fb6f56E9e45a090/454c7d913a51126b.png"
+    },
+    {
+      "name": "火车票",
+      "href": "#",
+      "src": "https://m.360buyimg.com/babel/jfs/t1/45761/32/10307/1581/5d7739e2Ece4b6671/0004c1b85fbf7bde.png",
+      "hoverSrc": "https://m.360buyimg.com/babel/jfs/t1/58891/36/278/1745/5cd4f1e0Ef4cc50a7/f12276b17e5dcf3b.png"
+    },
+    {
+      "name": "酒店",
+      "href": "#",
+      "src": "https://m.360buyimg.com/babel/jfs/t1/52668/12/10399/979/5d7739d1Efd1b6a04/18668c963bf9d646.png",
+      "hoverSrc": "https://m.360buyimg.com/babel/jfs/t1/44601/19/915/1039/5cd4f1cfE2e46473c/b61f083872a7a1de.png"
+    },
+    {
+      "name": "电影票",
+      "href": "#",
+      "src": "https://m.360buyimg.com/babel/jfs/t1/60778/37/9838/3066/5d7739faEd3b7dbb9/dd4d9ef7ce8fc169.png",
+      "hoverSrc": "https://m.360buyimg.com/babel/jfs/t1/41106/15/4551/3300/5cd4f1c7E507148c7/90a218f053e903d2.png"
+    }
   ]
 }
