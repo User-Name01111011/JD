@@ -117,7 +117,6 @@ import { MySliders } from './mySliders'
 import { ref } from 'vue'
 import $ from 'jquery'
 
-console.log(store.userInfo.portraitSrc)
 let cateDropdownIndex = ref(-1)
 
 function menuLiEnter(index) {
@@ -155,7 +154,7 @@ MySliders({
 	justify-content: space-between;
 	align-items: flex-start;
 	height: 470px;
-	margin: 10px 0 0;
+	margin: 10px 0 30px;
 
 	.cate {
 		width: 190px;
@@ -337,6 +336,7 @@ MySliders({
 			z-index: 1;
 		}
 	}
+  @include navigation;
 	.pagination {
 		display: flex;
 		z-index: 2;
@@ -366,54 +366,7 @@ MySliders({
 	}
 }
 
-.slider-navigation {
-	position: absolute;
-	top: 50%;
-	border-radius: 0;
-	width: 25px;
-	height: 35px;
-	line-height: 35px;
-	background-color: rgba(0, 0, 0, .15);
-	margin-top: -20px;
-	z-index: 2;
-	border: none;
-	outline: none;
-	-webkit-transition: background-color .2s ease;
-	transition: background-color .2s ease;
-	cursor: pointer;
-	font-size: 20px;
-	text-align: left;
-	color: rgba(255, 255, 255, .8);
 
-	&.prev {
-		left: 0;
-
-		border: {
-			top-right-radius: 18px;
-			bottom-right-radius: 18px;
-		}
-
-		;
-		text-indent: 5px;
-	}
-
-	&.next {
-		right: 0;
-
-		border: {
-			top-left-radius: 18px;
-			bottom-left-radius: 18px;
-		}
-
-		;
-		text-indent: 9px;
-	}
-
-	&:hover {
-		color: #fff;
-		background-color: rgba(0, 0, 0, .4);
-	}
-}
 
 .aside-slider {
 	width: 190px;
@@ -428,6 +381,7 @@ MySliders({
 		}
 	}
 
+  @include navigation;
 	.slider-navigation {
 		opacity: 0;
 	}

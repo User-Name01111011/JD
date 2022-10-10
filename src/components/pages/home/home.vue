@@ -36,6 +36,7 @@
 			<li v-show="win.scrollY > 670"><span class="elevator-totop-icon"></span>顶部</li>
 		</ul>
 		<Fs/>
+		<Seckill/>
 	</main>
 </template>
 
@@ -43,6 +44,7 @@
 import TopBar from 'components/common/TopBar/topBar.vue';
 import HomeHeader from './homeHeader.vue';
 import Fs from './fs.vue'
+import Seckill from './seckill.vue';
 
 import { promotionalTop } from './home.json'
 
@@ -96,7 +98,7 @@ let win = ref(window)
 
 .elevator {
 	position: absolute;
-	top: 510px;
+	top: 500px;
 	right: calc(50% - 673px);
 	z-index: 100;
 
