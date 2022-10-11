@@ -6,9 +6,9 @@
         <strong>{{seckill.countdown}}</strong>点场 距结束
       </div>
       <div class="timer">
-        <div class="hour"></div>
-        <div class="miute"></div>
-        <div class="second"></div>
+        <div class="hour">{{countdown.h}}</div>
+        <div class="miute">{{countdown.m < 10 ? '0' + countdown.m:countdown.m}}</div>
+        <div class="second">{{countdown.s < 10 ? '0' + countdown.s:countdown.s}}</div>
       </div>
     </a>
     <swiper 
@@ -30,6 +30,16 @@
         </a>
       </swiper-slide>
     </swiper>
+    <div class="brand">
+      <a :href="seckill.brand.href" target="_blank">
+        <img :src="seckill.brand.src" alt="">
+        <div class="info">
+          <p class="title">{{seckill.brand.title}}</p>
+          <p class="promo">{{seckill.brand.promo}}</p>
+          <div class="action">品类秒杀&gt;</div>
+        </div>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -42,13 +52,30 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation } from 'swiper'
 
 import 'swiper/scss'
-// import 'swiper/scss/navigation'
+
+let nowTime = new Date()
+const countdown = reactive({
+  h: 23 - Math.abs(nowTime.getHours() - seckill.countdown.slice(0, 2)),
+  m: Math.abs(59 - Math.abs(nowTime.getMinutes() - seckill.countdown.slice(3, 5))),
+  s: 59 - nowTime.getSeconds()
+})
+setInterval(()=>{
+  if(countdown.s > 0)countdown.s--
+  else if(countdown.m > 0){
+    countdown.m--
+    countdown.s = 59
+  }else if(countdown.h > 0){
+    countdown.h--
+    countdown.m = 59
+    countdown.s = 59
+  }else {
+    countdown.s = 0
+    // fetch 请求下一场秒杀活动,重置seckill数据
+  }
+}, 1000)
 
 let swiperOptions = reactive({
-  navigation: {
-    nextElRef: ".next",
-    prevElRef: ".prev",
-  }
+  navigation: true
 })
 
 const modules = [Navigation]
@@ -60,6 +87,7 @@ const modules = [Navigation]
     height: 260px;
     margin-bottom: 20px;
     background-color: #fff;
+  }
     .countdown {
       width: 190px;
       height: 100%;
@@ -70,6 +98,9 @@ const modules = [Navigation]
         size: contain;
         position: 50%;
         repeat: no-repeat;
+      }
+      &:hover {
+        color: #fff;
       }
         .title {
           width: 100%;
@@ -82,6 +113,13 @@ const modules = [Navigation]
         margin-top: 90px;
         font-size: 14px;
         text-align: center;
+        strong {
+          font-size: 18px;
+          padding-right: 2px;
+          vertical-align: middle;
+          display: inline-block;
+          margin-top: -1px;
+        }
       }
       .timer {
         display: flex;
@@ -98,19 +136,20 @@ const modules = [Navigation]
           background-color: #2f3430;
           color: white;
           font-size: 20px;
+          position: relative;
           &:nth-last-child(n + 2)::after{
             content: ":";
-            display: block;
+            position: absolute;
+            top: 0;
+            left: 30px;
             width: 20px;
             height: 100%;
-            margin: 0 0 0 30px;
             font-weight: bolder;
             font-size: 18px;
           }
         }
       }
     }
-  }
   .swiper {
     width: 800px;
     height: 100%;
@@ -186,4 +225,47 @@ const modules = [Navigation]
       }
     }
   }
+
+.brand {
+    width: 180px;
+    height: 240px;
+    padding: 10px;
+    img {
+      display: block;
+      width: 120px;
+      height: 120px;
+      margin: 20px auto 0;
+      transition: opacity .2s linear;
+    }
+    .info {
+      width: 100%;
+      height: 90px;
+      margin-top: 10px;
+      background: linear-gradient(180deg,rgba(255,255,255,.5),rgba(220,224,236,.5));
+      text-align: center;
+      font-size: 14px;
+      .title {
+        color: #666;
+      }
+      .promo {
+        color: #333;
+        font-weight: 700;
+      }
+      .action {
+        color: #e1251b;
+        border-radius: 14px;
+        width: 76px;
+        height: 22px;
+        padding-left: 4px;
+        border: 1px solid #e1251b;
+        margin: 4px auto 0;
+        text-align: center;
+        line-height: 22px;
+        font-weight: 700;
+        font-size: 12px;
+        -webkit-transition: background-color .2s ease;
+        transition: background-color .2s ease;
+      }
+    }
+}
 </style>
