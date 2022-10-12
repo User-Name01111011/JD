@@ -1595,7 +1595,7 @@
     }
   ],
   "seckill": {
-    "countdown": "24:00",
+    "countdown": "12:00",
     "sliders": [
       {
         "href": "//miaosha.jd.com/#100008912235",
@@ -1724,5 +1724,89 @@
       "title": "手机特惠秒杀",
       "promo": "爆款好物低价享"
     }
+  },
+  "spec": {
+    "offer": [
+      {
+        "href": "//miaosha.jd.com/specialpricelist.html?innerAnchor=10030562619503_10026289530625_10034104133261_10056426707425_10059099175883",
+        "src": "//img11.360buyimg.com/seckillcms/s144x144_jfs/t1/31970/17/17985/97987/633aa558Ea799ea8c/c8acd9a3eb6f8982.jpg!q70.jpg.avif",
+        "title": "广式多口味月饼混搭1斤",
+        "price": 9.9,
+        "lowestFirst": "1年",
+        "soldNum": null
+      },
+      {
+        "href": "//miaosha.jd.com/specialpricelist.html?innerAnchor=10026289530625_10030562619503_10034104133261_10056426707425_10059099175883",
+        "src": "//img13.360buyimg.com/seckillcms/s144x144_jfs/t1/119289/25/31035/33901/633a898dE15adb8b9/c11a5fa6472e389b.jpg!q70.jpg.avif",
+        "title": "猴头菇小饼干早餐零食",
+        "price": 9.9,
+        "lowestFirst": null,
+        "soldNum": 103
+      },
+      {
+        "href": "//miaosha.jd.com/specialpricelist.html?innerAnchor=10034104133261_10030562619503_10026289530625_10056426707425_10059099175883",
+        "src": "//img14.360buyimg.com/seckillcms/s144x144_jfs/t1/139701/11/29765/142469/6333b163E7faedb42/776b5fab567064ee.jpg!q70.jpg.avif",
+        "title": "冰丝内裤男四角网孔薄款平角",
+        "price": 9.9,
+        "lowestFirst": "55天",
+        "soldNum": null
+      },
+      {
+        "href": "//miaosha.jd.com/specialpricelist.html?innerAnchor=10056426707425_10030562619503_10026289530625_10034104133261_10059099175883",
+        "src": "//img20.360buyimg.com/seckillcms/s144x144_jfs/t1/204306/9/25092/80232/6333ed82Ee4021eba/e1de8baf2726e37e.jpg!q70.jpg.avif",
+        "title": "烟薯25号红薯糖心蜜薯精选3斤",
+        "price": 9.9,
+        "lowestFirst": "88天",
+        "soldNum": null
+      },
+      {
+        "href": "//miaosha.jd.com/specialpricelist.html?innerAnchor=10059099175883_10030562619503_10026289530625_10034104133261_10056426707425",
+        "src": "//img14.360buyimg.com/seckillcms/s144x144_jfs/t1/121059/16/30597/193253/6306e6f6Edae756e1/b954ecbbf326f964.jpg!q70.jpg.avif",
+        "title": "云南八珍菌汤包1袋",
+        "price": 9.9,
+        "lowestFirst": "47天",
+        "soldNum": 150
+      }
+    ],
+    "lightningBuy": [
+      {
+        "name": "GAP品牌闪购专场",
+        "href": "//red.jd.com/?brandId=320822",
+        "src": "//img14.360buyimg.com/seckillcms/s70x35_jfs/t1/137261/8/29456/7288/6334ecd8E5a6f7659/9a46bf4dc7f1b6eb.png!cc_70x35.avif",
+        "goodsSrc": "//img20.360buyimg.com/seckillcms/s390x390_jfs/t1/210895/2/26744/70216/6342b530E2de608b5/fd12a0978243e1a3.jpg!cc_130x130.avif",
+        "promo": "29",
+        "extra": "2022/10/13 00:00:00"
+      },
+      {
+        "name": "维达大牌闪购日",
+        "href": "//red.jd.com/?brandId=321496",
+        "src": "//img20.360buyimg.com/seckillcms/s300x150_jfs/t1/156684/40/31112/13737/63426ae2Ede9844b9/bca557f52d320d70.png!cc_300x150.avif"
+      },
+      {
+        "name": "帕罗品牌闪购专场",
+        "href": "//red.jd.com/?brandId=321630",
+        "src": "//img30.360buyimg.com/seckillcms/s300x150_jfs/t1/36389/31/18196/20217/634272cfE233b0b2a/33a8e990141b09ab.png!cc_300x150.avif"
+      },
+      {
+        "name": "诺诗兰品牌闪购",
+        "href": "//red.jd.com/?brandId=321913",
+        "src": "//img10.360buyimg.com/seckillcms/s300x150_jfs/t1/48286/1/18194/11306/6343faf7E36f9a372/0872b614246f9394.png!cc_300x150.avif"
+      },
+      {
+        "name": "vivo&iQOO专场",
+        "href": "//red.jd.com/?brandId=321646",
+        "src": "//img12.360buyimg.com/seckillcms/s300x150_jfs/t1/54766/15/22005/4773/634388c9E664bf225/93716953ddcc2489.png!cc_300x150.avif"
+      },
+      {
+        "name": "jeep闪购",
+        "href": "//red.jd.com/?brandId=321974",
+        "src": "//img13.360buyimg.com/seckillcms/s300x150_jfs/t1/189609/16/29217/3671/63451c7cE51d2bf02/386c819450836534.png!cc_300x150.avif"
+      },
+      {
+        "name": "Merrell精选闪购",
+        "href": "//red.jd.com/?brandId=322095",
+        "src": "//img20.360buyimg.com/seckillcms/s300x150_jfs/t1/18184/29/18044/3544/6344c83eE65ee5dde/26678fc386647f1d.png!cc_300x150.avif"
+      }
+    ]
   }
 }

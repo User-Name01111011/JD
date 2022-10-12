@@ -37,6 +37,7 @@
 		</ul>
 		<Fs/>
 		<Seckill/>
+		<spec/>
 	</main>
 </template>
 
@@ -45,6 +46,7 @@ import TopBar from 'components/common/TopBar/topBar.vue';
 import HomeHeader from './homeHeader.vue';
 import Fs from './fs.vue'
 import Seckill from './seckill.vue';
+import spec from './spec.vue'
 
 import { promotionalTop } from './home.json'
 

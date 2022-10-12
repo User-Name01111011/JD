@@ -6,7 +6,7 @@
         <strong>{{seckill.countdown}}</strong>点场 距结束
       </div>
       <div class="timer">
-        <div class="hour">{{countdown.h}}</div>
+        <div class="hour">{{countdown.h < 10 ? '0' + countdown.h:countdown.h}}</div>
         <div class="miute">{{countdown.m < 10 ? '0' + countdown.m:countdown.m}}</div>
         <div class="second">{{countdown.s < 10 ? '0' + countdown.s:countdown.s}}</div>
       </div>
@@ -55,7 +55,7 @@ import 'swiper/scss'
 
 let nowTime = new Date()
 const countdown = reactive({
-  h: 23 - Math.abs(nowTime.getHours() - seckill.countdown.slice(0, 2)),
+  h: 3 - Math.abs(nowTime.getHours() - seckill.countdown.slice(0, 2)),
   m: Math.abs(59 - Math.abs(nowTime.getMinutes() - seckill.countdown.slice(3, 5))),
   s: 59 - nowTime.getSeconds()
 })
