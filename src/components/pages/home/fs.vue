@@ -36,8 +36,8 @@
       </div>
     </nav>
     <div class="center-slider">
-      <button class="slider-navigation prev">&lt;</button>
-      <button class="slider-navigation next">&gt;</button>
+      <button class="slider-navigation-prev">&lt;</button>
+      <button class="slider-navigation-next">&gt;</button>
       <ul class="list">
         <li v-for="slide of centerSliders"
           class="item">
@@ -49,8 +49,8 @@
       </ul>
     </div>
     <div class="aside-slider">
-      <button class="slider-navigation prev">&lt;</button>
-      <button class="slider-navigation next">&gt;</button>
+      <button class="slider-navigation-prev">&lt;</button>
+      <button class="slider-navigation-next">&gt;</button>
       <ul class="list">
         <li v-for="slide of asideSliders"
           class="item">
@@ -336,7 +336,6 @@ MySliders({
 			z-index: 1;
 		}
 	}
-  @include navigation;
 	.pagination {
 		display: flex;
 		z-index: 2;
@@ -381,7 +380,6 @@ MySliders({
 		}
 	}
 
-  @include navigation;
 	.slider-navigation {
 		opacity: 0;
 	}
@@ -391,7 +389,6 @@ MySliders({
 	}
 
 	.item {
-		@include img-hover;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -408,6 +405,10 @@ MySliders({
 			z-index: 1;
 		}
 
+    a {
+      @include img-hover;
+    }
+    
 		img {
 			width: 100%;
 			height: 150px;
