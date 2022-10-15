@@ -375,12 +375,12 @@ MySliders({
 	position: relative;
 
 	&:hover {
-		.slider-navigation {
+		.slider-navigation-prev, .slider-navigation-next {
 			opacity: 1;
 		}
 	}
 
-	.slider-navigation {
+	.slider-navigation-prev, .slider-navigation-next {
 		opacity: 0;
 	}
 

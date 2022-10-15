@@ -110,3 +110,44 @@ a:hover {
 
   text-indent: 9px;
 }
+
+.floorhd {
+  position: relative;
+  overflow: hidden;
+  height: 45px;
+  width: 150px;
+  padding: 0 30px;
+  margin: 0 auto 20px;
+  text-align: center;
+
+  font: {
+    size: 28px;
+    weight: 700;
+  }
+
+  line-height: 45px;
+  color: #333;
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 25px;
+    height: 20px;
+    background-image: url(//misc.360buyimg.com/mtd/pc/index_2019/1.0.1/assets/sprite/floor_hd/sprite.png);
+    margin-top: -10px;
+  }
+  &::before {
+    background-position: 0 0;
+    left: 0;
+  }
+  &::after {
+    background-position: -25px 0;
+    right: 0;
+  }
+}
+
+@mixin scroll-location {
+  padding-top: 72px;
+  margin-top: -72px;
+}

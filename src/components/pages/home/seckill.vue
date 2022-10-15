@@ -73,10 +73,13 @@ const modules = [Navigation]
 
 <style lang="scss" scoped>
 .seckill {
+  @include scroll-location;
   display: flex;
   height: 260px;
   margin-bottom: 20px;
-  background-color: #fff;
+  background: {
+    image: linear-gradient(180deg, transparent 70px,#fff 70px, #fff 100%);
+  }
 }
 
 .countdown {

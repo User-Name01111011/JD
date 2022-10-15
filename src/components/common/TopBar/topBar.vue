@@ -184,7 +184,7 @@ function areaClick(id) {
   border-bottom: 1px solid #ddd;
   background-color: #e3e4e5;
   font-size: 12px;
-  line-height: 28px;
+  line-height: 30px;
   color: #999;
 
   .style-red {
@@ -194,6 +194,7 @@ function areaClick(id) {
   .dt {
     height: 30px;
     padding: 0 7px;
+    text-align: center;
   }
 
   .iconfont {
@@ -304,10 +305,6 @@ function areaClick(id) {
       width: 1188px;
       padding: 15px 0;
     }
-  }
-
-  &.mobile {
-    width: 88px;
   }
 }
 
@@ -422,6 +419,10 @@ function areaClick(id) {
     .mobile_static {
       display: none;
     }
+  }
+
+  .dt {
+    width: 60px
   }
 }
 

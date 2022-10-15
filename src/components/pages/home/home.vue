@@ -5,9 +5,9 @@
 		<i class="promotional-top-close" @click="isPromotionalTop = false"></i>
 	</div>
 	<TopBar />
-	<HomeHeader :scrollY="win.scrollY" />
+	<HomeHeader :scroll-y="scrollY"/>
 	<main class="main">
-		<ul class="elevator">
+		<ul class="elevator" :class="{fix: scrollY >= 690}">
 			<svg class="svgcont" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 				style="display: none;">
 				<defs>
@@ -23,21 +23,22 @@
 					</symbol>
 				</defs>
 			</svg>
-			<li>京东秒杀</li>
-			<li>特色优选</li>
-			<li>频道广场</li>
-			<li>为你推荐</li>
+			<li :class="{active: elevatorIndex == 0}" @click="toSeckill">京东秒杀</li>
+			<li :class="{active: elevatorIndex == 1}" @click="toSpec">特色优选</li>
+			<li :class="{active: elevatorIndex == 2}" @click="toChannels">频道广场</li>
+			<li :class="{active: elevatorIndex == 3}" @click="toRecommend">为你推荐</li>
 			<li><svg>
 					<use xlink:href="#icon_timline"></use>
 				</svg>客服</li>
 			<li><svg>
 					<use xlink:href="#icon_feedback"></use>
 				</svg>反馈</li>
-			<li v-show="win.scrollY > 670"><span class="elevator-totop-icon"></span>顶部</li>
+			<li @click="toTop" class="back-top"><span class="elevator-totop-icon"></span>顶部</li>
 		</ul>
 		<Fs/>
 		<Seckill/>
 		<spec/>
+		<channels/>
 	</main>
 </template>
 
@@ -47,15 +48,65 @@ import HomeHeader from './homeHeader.vue';
 import Fs from './fs.vue'
 import Seckill from './seckill.vue';
 import spec from './spec.vue'
+import channels from './channels.vue'
 
 import { promotionalTop } from './home.json'
 
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
 
 let isPromotionalTop = ref(true)
 
-let win = ref(window)
-
+const scrollY = ref(0)
+const elevatorIndex = ref(-1)
+window.onscroll = ()=>{
+	scrollY.value = window.pageYOffset
+	if(scrollY.value < 690){
+		elevatorIndex.value = -1
+	}else if(scrollY.value < 970){
+		elevatorIndex.value = 0
+	}else if(scrollY.value < 990){
+		elevatorIndex.value = 1
+	}else if(scrollY.value < 1000){
+		elevatorIndex.value = 2
+	}else{
+		elevatorIndex.value = 3
+	}
+}
+function toSeckill(){
+	document.querySelector(".seckill").scrollIntoView({
+		behavior: "smooth",
+		block: "start",
+		inline: "nearest"
+	})
+}
+function toSpec(){
+	document.querySelector(".spec").scrollIntoView({
+		behavior: "smooth",
+		block: "start",
+		inline: "nearest"
+	})
+}
+function toChannels(){
+	document.querySelector(".channels").scrollIntoView({
+		behavior: "smooth",
+		block: "start",
+		inline: "nearest"
+	})
+}
+function toRecommend(){
+	document.querySelector(".recommend").scrollIntoView({
+		behavior: "smooth",
+		block: "start",
+		inline: "nearest"
+	})
+}
+function toTop(){
+	document.querySelector("body").scrollIntoView({
+		behavior: "smooth",
+		block: "start",
+		inline: "nearest"
+	})
+}
 </script>
 
 <style lang="scss" scoped>
@@ -118,7 +169,12 @@ let win = ref(window)
 		line-height: 19px;
 		font-size: 14px;
 		color: #333;
+		cursor: pointer;
 
+		&.active {
+			color: #e1251b;
+		}
+		
 		&:hover {
 			background: #c81623;
 			color: #fff;
@@ -165,6 +221,36 @@ let win = ref(window)
 			font-size: 20px;
 		}
 	}
+	.back-top {
+		display: none;
+	}
+		@-webkit-keyframes eleShow {
+			0% {
+				top: 0
+			}
+	
+			to {
+				top: 75px
+			}
+		}
+	
+		@keyframes eleShow {
+			0% {
+				top: 0
+			}
+	
+			to {
+				top: 75px
+			}
+		}
+	&.fix {
+		position: fixed;
+		top: 75px;
+		-webkit-animation: eleShow .5s ease both;
+    animation: eleShow .5s ease both;
+		.back-top {
+			display: block;
+		}
+	}
 }
-
 </style>

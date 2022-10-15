@@ -4,6 +4,48 @@
     "style": "background-color: rgb(214, 5, 4);",
     "src": "//img20.360buyimg.com/babel/jfs/t1/158533/8/31259/16713/63419fdeE7c00b90c/db07e2d074afaef7.jpg.avif"
   },
+  "placeholderArr": ["雷神笔记本", "怡宝矿泉水", "黄金手链", "针式打印机"
+  ],
+  "hotWords": [
+    { "name": "电脑数码日", "href": "#"
+    },
+    { "name": "出行防疫", "href": "#"
+    },
+    { "name": "潮玩电子", "href": "#"
+    },
+    { "name": "iPhone14", "href": "#"
+    },
+    { "name": "热卖潮品", "href": "#"
+    },
+    { "name": "京东京造", "href": "#"
+    },
+    { "name": "手机爆款", "href": "#"
+    }
+  ],
+  "navList": [
+    { "name": "京东五金城", "href": "#"
+    },
+    { "name": "京东超市", "href": "#"
+    },
+    { "name": "秒杀", "href": "#"
+    },
+    { "name": "京东家电", "href": "#"
+    },
+    { "name": "京东生鲜", "href": "#"
+    },
+    { "name": "优惠券", "href": "#"
+    },
+    { "name": "PLUS会员", "href": "#"
+    },
+    { "name": "拍卖", "href": "#"
+    },
+    { "name": "品牌闪购", "href": "#"
+    },
+    { "name": "进口好物", "href": "#"
+    }
+  ],
+  "treasure": { "href": "//pro.jd.com/mall/active/8ip7u8QSsCD8XAxsNPWAujLACbs/index.html?babelChannel=ttt4", "style": "background-image: url(//img11.360buyimg.com/babel/jfs/t1/208615/31/26072/71483/63326a8dEd27dc0d4/b16acc0caaec4c85.png.avif;); background-size: cover;"
+  },
   "cateDropdown": [
     {
       "channel": [
@@ -2033,5 +2075,239 @@
         "desc": "仅可购买京东健康部分商品"
       }
     ]
-  }
+  },
+  "channels": [
+    {
+      "href": "//pro.jd.com/mall/active/3sAaxodHF7kfo3s95cjxo2UZUxu2/index.html",
+      "src": "//img13.360buyimg.com/babel/s290x370_jfs/t1/92557/10/15252/173783/60a60c58Eaec1cb70/466903cb1e5a5d82.jpg!cc_290x370.avif"
+    },
+    {
+      "href": "//chaoshi.jd.com/",
+      "src": "//img20.360buyimg.com/babel/s290x370_jfs/t1/169223/11/9002/236742/603f38feEa4a8d83e/4ace79eafcac855c.jpg!cc_290x370.avif"
+    },
+    {
+      "title": "企业购",
+      "intro": "一站式企业采购平台",
+      "content": [
+        {
+          "href": "//b.jd.com/?skuId=7873875_918498&groupId=03312682&productId=09180689",
+          "src": "//img11.360buyimg.com/img/s100x100_jfs/t1/96227/32/26847/166519/625d2ee3Ee73d09d4/ed3c34976b3e6c4d.jpg!cc_100x100.avif"
+        },
+        {
+          "href": "//b.jd.com/?skuId=918498_7873875&groupId=03312682&productId=09180689",
+          "src": "//img13.360buyimg.com/img/s100x100_jfs/t1/123730/40/4511/247917/5ee201b1E3c936847/5ec10b6c9b21d075.jpg!cc_100x100.avif"
+        }
+      ]
+    },
+    {
+      "title": "Joy寻宝",
+      "intro": "懂你的Joy",
+      "content": [
+        {
+          "href": "//hellojoy.jd.com/?babelChannel=1500735&itemid=73&activityId=3EqVU9imyidX8B3bFF5tGhX4bbKb&linkIds=10026053725142,10415877211",
+          "src": "//img13.360buyimg.com/img/s100x100_jfs/t1/160553/29/1237/37364/5ff52aafE6b28a6dd/4bdc9d1da7481f81.jpg!cc_100x100.avif"
+        },
+        {
+          "href": "//hellojoy.jd.com/?babelChannel=1500735&itemid=73&activityId=3EqVU9imyidX8B3bFF5tGhX4bbKb&linkIds=10415877211,10026053725142",
+          "src": "//img14.360buyimg.com/img/s100x100_jfs/t1/72307/40/406/105683/5ce90695Edeada7a6/ad32e6a15b91bc0d.jpg!cc_100x100.avif"
+        }
+      ]
+    },
+    {
+      "title": "新机发布",
+      "intro": "有新机更有范",
+      "content": [
+        {
+          "href": "//search.jd.com/Search?keyword=%E6%96%B0%E6%9C%BA%E5%8F%91%E5%B8%83&enc=utf-8&wq=%E6%96%B0%E6%9C%BA%E5%8F%91%E5%B8%83&pvid=8d21e9d23082426683214ef368af078e?skuId=100018841309_100033096456&groupId=03312682&productId=09173998",
+          "src": "//img10.360buyimg.com/img/s100x100_jfs/t1/220683/40/12466/69221/620c5fa1E780c9621/051b8c25cb9e7dad.jpg!cc_100x100.avif"
+        },
+        {
+          "href": "//search.jd.com/Search?keyword=%E6%96%B0%E6%9C%BA%E5%8F%91%E5%B8%83&enc=utf-8&wq=%E6%96%B0%E6%9C%BA%E5%8F%91%E5%B8%83&pvid=8d21e9d23082426683214ef368af078e?skuId=100033096456_100018841309&groupId=03312682&productId=09173998",
+          "src": "//img13.360buyimg.com/img/s100x100_jfs/t1/214980/5/20396/217321/62b5e7afE0939d598/666754d8bbdf4136.jpg!cc_100x100.avif"
+        }
+      ]
+    },
+    {
+      "title": "京东超市",
+      "intro": "一站式囤生活好物",
+      "content": [
+        {
+          "href": "//chaoshi.jd.com?skuId=16239208399_6223237&groupId=03312682&productId=09181429",
+          "src": "//img14.360buyimg.com/img/s100x100_jfs/t19429/345/2114569686/193072/6f671ab/5ae74720N203d91fc.jpg!cc_100x100.avif"
+        },
+        {
+          "href": "//chaoshi.jd.com?skuId=6223237_16239208399&groupId=03312682&productId=09181429",
+          "src": "//img11.360buyimg.com/img/s100x100_jfs/t1/109441/34/29127/214659/626f495eEdde4cf12/5b1263bc25ccb743.jpg!cc_100x100.avif"
+        }
+      ]
+    },
+    {
+      "title": "京东手机",
+      "intro": "一个极客的诞生",
+      "content": [
+        {
+          "href": "//prodev.jd.com/mall/active/Y9FVe619hMoajzqpxky1CQQJAkk/index.html?skuId=100027815960_100032449270&groupId=03312682&productId=09173749",
+          "src": "//img30.360buyimg.com/img/s100x100_jfs/t1/198548/35/13701/79423/616e9349E0607978a/7850f7e3dc5ab96b.jpg!cc_100x100.avif"
+        },
+        {
+          "href": "//prodev.jd.com/mall/active/Y9FVe619hMoajzqpxky1CQQJAkk/index.html?skuId=100032449270_100027815960&groupId=03312682&productId=09173749",
+          "src": "//img13.360buyimg.com/img/s100x100_jfs/t1/129636/39/22138/92390/61e3c72bE1a787874/8cb4cdba170196e7.jpg!cc_100x100.avif"
+        }
+      ]
+    },
+    {
+      "title": "生鲜馆",
+      "intro": "尝遍天下鲜",
+      "content": [
+        {
+          "href": "//fresh.jd.com?skuId=10042638457518_100014164727&groupId=03312682&productId=09649880",
+          "src": "//img13.360buyimg.com/img/s100x100_jfs/t1/191342/37/26357/240308/62b91d6cE15134100/cae531e4f2c147a7.jpg!cc_100x100.avif"
+        },
+        {
+          "href": "//fresh.jd.com?skuId=100014164727_10042638457518&groupId=03312682&productId=09649880",
+          "src": "//img14.360buyimg.com/img/s100x100_jfs/t1/198408/4/7387/102510/61380757Ec1aa6086/377a5d5d6ece242f.jpg!cc_100x100.avif"
+        }
+      ]
+    },
+    {
+      "title": "智能数码",
+      "intro": "尽享玩物",
+      "content": [
+        {
+          "href": "//shuma.jd.com?skuId=567895_100001193741&groupId=03312682&productId=09168779",
+          "src": "//img30.360buyimg.com/img/s100x100_jfs/t1/45325/22/15182/166212/5dc3d811E1795fe79/c6f576718dba1566.jpg!cc_100x100.avif"
+        },
+        {
+          "href": "//shuma.jd.com?skuId=100001193741_567895&groupId=03312682&productId=09168779",
+          "src": "//img10.360buyimg.com/img/s100x100_jfs/t1/168641/17/21997/148234/618538c2E279ed9c0/24901092432f0166.jpg!cc_100x100.avif"
+        }
+      ]
+    },
+    {
+      "title": "拍拍二手",
+      "intro": "大牌1元抢",
+      "content": [
+        {
+          "href": "//2.jd.com?skuId=45547783298_54314989557&groupId=03312682&productId=09168960",
+          "src": "//img30.360buyimg.com/img/s100x100_jfs/t1/161828/23/14644/145860/605ab829E46e794de/4c61bb026b5d77b2.jpg!cc_100x100.avif"
+        },
+        {
+          "href": "//2.jd.com?skuId=54314989557_45547783298&groupId=03312682&productId=09168960",
+          "src": "//img13.360buyimg.com/img/s100x100_jfs/t1/145851/26/20416/163351/61725656E4b121722/fdeba60d0439a933.jpg!cc_100x100.avif"
+        }
+      ]
+    },
+    {
+      "title": "家装城",
+      "intro": "用心装好家一站式购齐",
+      "content": [
+        {
+          "href": "//search.jd.com/Search?keyword=%E5%AE%B6%E8%A3%85&enc=utf-8&wq=%E5%AE%B6%E8%A3%85&pvid=fb3ae1b22277448eb3e0d993720712f1?skuId=4672676_4029975&groupId=03312682&productId=09169156",
+          "src": "//img12.360buyimg.com/img/s100x100_jfs/t1/211051/8/13362/259313/61c17ff5Ee84aab32/63dbb04a6ff52715.jpg!cc_100x100.avif"
+        },
+        {
+          "href": "//search.jd.com/Search?keyword=%E5%AE%B6%E8%A3%85&enc=utf-8&wq=%E5%AE%B6%E8%A3%85&pvid=fb3ae1b22277448eb3e0d993720712f1?skuId=4029975_4672676&groupId=03312682&productId=09169156",
+          "src": "//img14.360buyimg.com/img/s100x100_jfs/t1/72856/7/18592/721062/62b91876Ec74a195b/5e656ecb1de9b8cf.jpg!cc_100x100.avif"
+        }
+      ]
+    },
+    {
+      "title": "家用电器",
+      "intro": "买家电 上京东",
+      "content": [
+        {
+          "href": "//jiadian.jd.com?skuId=4162279_100004117212&groupId=03312682&productId=08899227",
+          "src": "//img13.360buyimg.com/img/s100x100_jfs/t1/219115/17/20572/417071/62bbe7b0E377a4d1d/e80fd256d7a55fef.jpg!cc_100x100.avif"
+        },
+        {
+          "href": "//jiadian.jd.com?skuId=100004117212_4162279&groupId=03312682&productId=08899227",
+          "src": "//img30.360buyimg.com/img/s100x100_jfs/t1/213314/18/20720/176153/62baa0ddEec742c0a/9752e2b24e048754.jpg!cc_100x100.avif"
+        }
+      ]
+    },
+    {
+      "title": "京东京造",
+      "intro": "京东自有品牌",
+      "content": [
+        {
+          "href": "//pro.jd.com/mall/active/WFJKWrVftPmGdDENfVqJU8BCB5c/index.html?skuId=8265710_6828764&groupId=03312682&productId=09165677",
+          "src": "//img14.360buyimg.com/img/s100x100_jfs/t1/154661/7/24385/207606/62b18a9cE83f09ef0/a44f8753580e84a3.jpg!cc_100x100.avif"
+        },
+        {
+          "href": "//pro.jd.com/mall/active/WFJKWrVftPmGdDENfVqJU8BCB5c/index.html?skuId=6828764_8265710&groupId=03312682&productId=09165677",
+          "src": "//img12.360buyimg.com/img/s100x100_jfs/t1/103235/10/30507/251947/62b55d24Edd50adca/e5817fbf8e42051c.jpg!cc_100x100.avif"
+        }
+      ]
+    },
+    {
+      "title": "大药房",
+      "intro": "购正品药 免费换新",
+      "content": [
+        {
+          "href": "//yiyao.jd.com?skuId=3140784_2876568&groupId=03312682&productId=09170698",
+          "src": "//img30.360buyimg.com/img/s100x100_jfs/t1/197574/4/25142/196067/62b5b234E2ea51015/9f1dc97ee267f3e5.jpg!cc_100x100.avif"
+        },
+        {
+          "href": "//yiyao.jd.com?skuId=2876568_3140784&groupId=03312682&productId=09170698",
+          "src": "//img30.360buyimg.com/img/s100x100_jfs/t1/71256/23/20127/512641/62b94842E51f05a21/3c4ea6fb91cef8bd.jpg!cc_100x100.avif"
+        }
+      ]
+    },
+    {
+      "title": "京东美妆",
+      "intro": "京东美妆 懂你的美",
+      "content": [
+        {
+          "href": "//beauty.jd.com?skuId=100003485842_100006245305&groupId=03312682&productId=09168284",
+          "src": "//img30.360buyimg.com/img/s100x100_jfs/t1/205936/1/24800/285076/62b82343E4f8e2384/fefb5265c758dade.jpg!cc_100x100.avif"
+        },
+        {
+          "href": "//beauty.jd.com?skuId=100006245305_100003485842&groupId=03312682&productId=09168284",
+          "src": "//img30.360buyimg.com/img/s100x100_jfs/t1/14752/1/17315/180023/62aded38Efd567850/0b4c83cea2d86992.jpg!cc_100x100.avif"
+        }
+      ]
+    },
+    {
+      "title": "厨卫电器",
+      "intro": "百变厨房大焕新",
+      "content": [
+        {
+          "href": "//phat.jd.com/10-801.html?skuId=100015098932_100012372684&groupId=03312682&productId=12089326",
+          "src": "//img20.360buyimg.com/img/s100x100_jfs/t1/81433/17/19997/557329/62b90f72Ecf47112d/18fc15aa924a9c06.jpg!cc_100x100.avif"
+        },
+        {
+          "href": "//phat.jd.com/10-801.html?skuId=100012372684_100015098932&groupId=03312682&productId=12089326",
+          "src": "//img12.360buyimg.com/img/s100x100_jfs/t1/17631/26/16928/199270/62bb13c6E760045c7/97d310b17280bc1b.jpg!cc_100x100.avif"
+        }
+      ]
+    },
+    {
+      "title": "京东时尚",
+      "intro": "服饰美妆好物",
+      "content": [
+        {
+          "href": "//fashion.jd.com?skuId=45114820556_44553702432&groupId=03312682&productId=09121441",
+          "src": "//img30.360buyimg.com/img/s100x100_jfs/t1/221157/24/17553/248337/62bc042bE0baae841/dc725b4ba3bef850.jpg!cc_100x100.avif"
+        },
+        {
+          "href": "//fashion.jd.com?skuId=44553702432_45114820556&groupId=03312682&productId=09121441",
+          "src": "//misc.360buyimg.com/mtd/pc/common/img/blank.png"
+        }
+      ]
+    },
+    {
+      "title": "冰箱洗衣机",
+      "intro": "品质生活必备",
+      "content": [
+        {
+          "href": "//jdbx.jd.com?skuId=100001923907_100002033667&groupId=03312682&productId=02857041",
+          "src": "//img12.360buyimg.com/img/s100x100_jfs/t1/151043/28/23940/281302/62b416a6E4a0968dc/a51474274da2e7b5.jpg!cc_100x100.avif"
+        },
+        {
+          "href": "//jdbx.jd.com?skuId=100002033667_100001923907&groupId=03312682&productId=02857041",
+          "src": "//img12.360buyimg.com/img/s100x100_jfs/t1/3824/36/19499/472449/62babcbdE37163181/8d09c498945d1f89.jpg!cc_100x100.avif"
+        }
+      ]
+    }
+  ]
 }

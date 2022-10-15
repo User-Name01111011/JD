@@ -96,7 +96,8 @@
           :loop="newArrivalSwiperOptions.loop"
           :looped-slides="newArrivalSwiperOptions.loopedSlides"
           :navigation="newArrivalSwiperOptions.navigation"
-          :speed="newArrivalSwiperOptions.speed">
+          :speed="newArrivalSwiperOptions.speed"
+          class="swiper-no-swiping">
           <SwiperSlide v-for="slide of spec.newArrival">
             <a :href="slide.href" target="_blank">
               <img :src="slide.src" alt="">
@@ -212,7 +213,6 @@ let countdown, countdownTime = computed(()=>{
     ":"+(countdown.s < 10 ? '0' + countdown.s:countdown.s)
   }
 })
-console.log(Math.floor((lastTime - nowTime)/1000))
 if(lastTime - nowTime < 1){
 //重新请求品牌闪购,重置lightningBuy数据
 }else if(Math.floor((lastTime - nowTime)/1000)/86400 > 1){
@@ -283,7 +283,7 @@ let newArrivalSwiperOptions = reactive({
   loop: true,
   loopedSlides: 10,
   navigation: true,
-  speed: 700
+  speed: 600
 })
 
 let newArrivalSwiperModules = reactive([Autoplay, Navigation])
@@ -292,6 +292,9 @@ let joyIndex = ref(1)
 </script>
 
 <style lang="scss" scoped>
+.spec {
+  @include scroll-location;
+}
 .arrow {
   width: 16px;
   height: 16px;

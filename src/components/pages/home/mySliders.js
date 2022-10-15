@@ -49,10 +49,10 @@ export function MySliders(param) {
     }
 
     if (param.navigation) {
-      el.find('.prev').on('mousedown', () => {
+      el.find('.slider-navigation-prev').on('mousedown', () => {
         activeIndex.value = activeIndex.value > 0 ? --activeIndex.value : listLength
       })
-      el.find('.next').on('mousedown', () => {
+      el.find('.slider-navigation-next').on('mousedown', () => {
         activeIndex.value = activeIndex.value < listLength ? ++activeIndex.value : 0
       })
     }

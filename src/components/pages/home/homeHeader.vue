@@ -7,7 +7,7 @@
         <p class="logo_scene_btn" :class="{active: logoStatus.isText}">去看看&gt;</p>
       </a>
     </div>
-    <div class="center" :class="{fixtop: scrollY > 670}">
+    <div class="center" :class="{fixtop: scrollY > 660}">
       <a href="#" class="logo"></a>
       <form action="get" class="search">
         <input class="input" type="text" :placeholder="placeholderArr[placeholderIndex]" />
@@ -33,24 +33,22 @@
         <li v-for="item of navList"><a target="_blank" :href="item.href">{{item.name}}</a></li>
       </ul>
     </div>
-    <div class="treasure"><a id="J_promo_lk" class="promo_lk" href="treasure.href" target="_blank"
-        style="treasure.style"></a>
+    <div class="treasure"><a id="J_promo_lk" class="promo_lk" :href="treasure.href" target="_blank"
+        :style="treasure.style"></a>
     </div>
   </header>
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, watch } from 'vue'
 import { store } from '@/store.js'
+import { placeholderArr, hotWords, navList, treasure } from './home.json'
 
 let placeholderIndex = ref(0)
-let placeholderArr = ['雷神笔记本', '怡宝矿泉水', '黄金手链', '针式打印机']
-
-let hotWords = [{ name: "电脑数码日", href: "#" }, { name: "出行防疫", href: "#" }, { name: "潮玩电子", href: "#" }, { name: "iPhone14", href: "#" }, { name: "热卖潮品", href: "#" }, { name: "京东京造", href: "#" }, { name: "手机爆款", href: "#" }]
-
-let navList = [{ name: "京东五金城", href: "#" }, { name: "京东超市", href: "#" }, { name: "秒杀", href: "#" }, { name: "京东家电", href: "#" }, { name: "京东生鲜", href: "#" }, { name: "优惠券", href: "#" }, { name: "PLUS会员", href: "#" }, { name: "拍卖", href: "#" }, { name: "品牌闪购", href: "#" }, { name: "进口好物", href: "#" }]
-
-let treasure = { href: "//pro.jd.com/mall/active/8ip7u8QSsCD8XAxsNPWAujLACbs/index.html?babelChannel=ttt4", style: "background-image: url(//img11.360buyimg.com/babel/jfs/t1/208615/31/26072/71483/63326a8dEd27dc0d4/b16acc0caaec4c85.png.avif;); background-size: cover;" }
+setInterval(()=>{
+  if(placeholderIndex.value < placeholderArr.length - 1)placeholderIndex.value++
+  else placeholderIndex.value = 0
+}, 6000)
 
 let logoStatus = reactive({
   bg: '',
@@ -73,6 +71,7 @@ function logoEnter() {
     }, 3000)
   }, 3000)
 }
+
 const props = defineProps(['scrollY'])
 </script>
 
@@ -181,20 +180,56 @@ const props = defineProps(['scrollY'])
       }
     }
 
+    @-webkit-keyframes searchTop {
+      0% {
+        top: -50px
+      }
+
+      to {
+        top: 0
+      }
+    }
+
+    @keyframes searchTop {
+      0% {
+        top: -50px
+      }
+
+      to {
+        top: 0
+      }
+    }
+
     &.fixtop {
       @include wrapper;
       justify-content: left;
       align-items: center;
+      height: 50px;
       border-bottom: 2px solid #f10214;
       background-color: #fff;
       -webkit-box-shadow: 2px 2px 2px rgb(0 0 0 / 20%);
       box-shadow: 2px 2px 2pxrgba(0, 0, 0, .2);
+      -webkit-animation: searchTop .5s ease-in-out;
+      animation: searchTop .5s ease-in-out;
       position: fixed;
       top: 0;
       left: 0;
+      z-index: 100;
+
+      .logo {
+        display: block;
+      }
 
       .search {
         margin: 0 0 0 136px;
+      }
+
+      .hotwords {
+        display: none;
+      }
+
+      .navitems {
+        display: none;
       }
     }
   }
