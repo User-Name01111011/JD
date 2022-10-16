@@ -106,7 +106,7 @@
                 <p class="desc">来这里发现更多新品</p>
                 <p class="price">
                   <span class="dollar">￥</span>
-                  <span class="num">{{slide.price}}</span>起
+                  <span class="num">{{Math.trunc(slide.price)+'.'+(slide.price * 100).toString().slice(-2)}}</span>起
                 </p>
                 <div class="label-new">NEW</div>
               </div>
@@ -137,8 +137,7 @@
               <p class="name">{{item.title}}</p>
               <p class="price">
                 <span class="dollar">¥</span>
-                <span class="num">{{Math.trunc(item.price)}}
-                  <span class="decimal">{{item.price.toString().split(".")[1] || "00"}}</span>
+                <span class="num">{{Math.trunc(item.price)}}.<span class="decimal">{{(item.price * 100).toString().slice(-2)}}</span>
                 </span>
               </p>
             </div>

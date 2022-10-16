@@ -2309,5 +2309,260 @@
         }
       ]
     }
-  ]
+  ],
+  "recommend": {
+    "tabHead": [
+      {"id": 0, "title": "精选", "desc": "猜你喜欢"},
+      {"id": 1, "title": "智能先锋", "desc": "大电器城"},
+      {"id": 2, "title": "居家优品", "desc": "品质生活"},
+      {"id": 3, "title": "超市百货", "desc": "百货生鲜"},
+      {"id": 4, "title": "时尚达人", "desc": "美妆穿搭"},
+      {"id": 5, "title": "进口好物", "desc": "京东国际"}
+    ],
+    "tabBody": [
+      [
+        {
+          "id": "item1",
+          "href": "//item.jd.com/100021168937.html",
+          "src": "//img12.360buyimg.com/jdcms/s150x150_jfs/t1/201639/28/26831/156101/6347606cEceba72d6/a3af9baff189548b.jpg.avif",
+          "title": "海尔（Haier）冰箱 467升一级能效双变频风冷无霜十字对开门四开门多门家用超薄省电大容量电冰箱",
+          "price": 3899.00,
+          "pricePlus": 3799.00,
+          "info": "chosen"
+        },
+        {
+          "id": "item2",
+          "href": "//item.jd.com/10036349644371.html",
+          "src": "//img11.360buyimg.com/jdcms/s150x150_jfs/t1/103750/18/26847/88210/63423756Eb82fa145/9b19395dcf18ddb3.jpg.avif",
+          "title": "悦鲜活 A2β-酪蛋白 高品质多活性蛋白牛奶 低温鲜牛乳牛奶260mlA2瓶装家庭装套装 260ml*10瓶A2 早晚一瓶营养充足",
+          "price": 199.00
+        },
+        {
+          "id": "item3",
+          "href": "//item.jd.com/100016679587.html",
+          "src": "//img12.360buyimg.com/jdcms/s150x150_jfs/t1/201807/24/17135/108175/6347dba4E03702110/d0e80ba49ac0ade1.jpg.avif",
+          "title": "悦鲜活牛奶 INF超瞬时杀菌牛奶 950ml/瓶 低温牛奶 订奶 定期购 家庭装 ",
+          "price": 28.80,
+          "info": "self"
+        },
+        {
+          "id": "item4",
+          "href": "//item.jd.com/10057457452505.html",
+          "src": "//img30.360buyimg.com/jdcms/s150x150_jfs/t1/174832/11/18990/117818/60e82d29Ee53e205b/88283d2e25778c8c.jpg.avif",
+          "title": "蕉色 茶具配件功夫铜六君子套装紫砂茶宠摆件精品木茶道六君子 紫砂竹节+竹五件套",
+          "price": 11.37
+        },
+        {
+          "id": "joy1",
+          "class": "joy",
+          "href": "//hellojoy.jd.com/?itemid=41272&babelChannel=1500735&activityId=3VPZrFNMZQGuXcXnGgJQXVTm4Ehe&linkIds=100003547337,5121194,285999&source=06",
+          "src": "//img12.360buyimg.com/img/s150x150_jfs/t1/178524/29/8255/74861/60c07a2dE1bdd8e8e/1ce5f7a9a660a376.jpg!cc_150x150.avif",
+          "num": 80,
+          "title": "喝杯好酒",
+          "desc": "品味人生"
+        },
+        {
+          "id": "item5",
+          "href": "//item.jd.com/100020792840.html",
+          "src": "//img20.360buyimg.com/jdcms/s150x150_jfs/t1/133259/29/29201/53881/63457376Ecbdab0a5/ad6029be27e5528a.jpg.avif",
+          "title": "戴森(Dyson) V8 Fluffy Extra手持无线吸尘器 除螨 宠物 家庭适用",
+          "price": 2290.00,
+          "info": "self"
+        },
+        {
+          "id": "item6",
+          "href": "//item.jd.com/10032961164717.html",
+          "src": "//img12.360buyimg.com/jdcms/s150x150_jfs/t1/182647/24/11115/110998/60d57b88E6aca08f0/514179dd1073acea.jpg.avif",
+          "title": "焦色 头保温杯盖防漏通用开关配件保温壶盖子出水阀杯塞瓶塞瓶盖保温瓶内塞 5.2口径中白边灰（大号）",
+          "price": 22.00
+        },
+        {
+          "id": "item7",
+          "href": "//item.jd.com/100007987715.html",
+          "src": "//img11.360buyimg.com/jdcms/s150x150_jfs/t1/89634/34/29488/104476/634aed1bEf42bd574/841544cae79ffc4f.jpg.avif",
+          "title": "北鼎蒸炖锅 家用电蒸锅隔水炖盅全自动预约电炖锅家用多用途锅【升级版浅杉绿G56A】(含炖盅套件+二层蒸架）",
+          "price": 1758.00,
+          "info": "self"
+        },
+        {
+          "id": "item8",
+          "href": "//item.jd.com/3532532.html",
+          "src": "//img30.360buyimg.com/jdcms/s150x150_jfs/t1/113723/29/28771/50309/63479faeEed582a30/d88f18298509423e.jpg.avif",
+          "title": "然也(RAE)保温杯304不锈钢水杯茶杯 男女士大容量商务车载便携 带茶滤泡茶杯子500ml黑色R3106",
+          "price": 49.90,
+          "pricePlus": 45.90,
+          "info": "self"
+        },
+        {
+          "id": "item9",
+          "href": "//item.jd.com/100019717190.html",
+          "src": "//img10.360buyimg.com/jdcms/s150x150_jfs/t1/26082/38/18596/71806/6348f6a9E0ed8c6b3/43e35b9ed1ef8342.jpg.avif",
+          "title": "三星（SAMSUNG）75英寸 AU8800 4K超高清HDR 超薄全面屏 AI智能补帧 平板液晶电视UA75AU8800JXXZ",
+          "price": 6499.00,
+          "info": "self"
+        },
+        {
+          "id": "hotwords1",
+          "class": "hotwords",
+          "list": [
+            {"title": "自拍杆", "href": "//search.jd.com/Search?keyword=%E7%94%B5%E8%84%91%E6%95%A3%E7%83%AD%E6%9E%B6&enc=utf-8"},
+            {"title": "门铃感应器", "href": "//search.jd.com/Search?keyword=%E9%98%B2%E6%8A%A4%E7%9C%BC%E9%95%9C&enc=utf-8"},
+            {"title": "煲汤锅砂锅", "href": "//search.jd.com/Search?keyword=%E6%B4%97%E9%9D%A2%E5%A5%B6&enc=utf-8"},
+            {"title": "黄金项链", "href": "//search.jd.com/Search?keyword=%E7%94%B5%E8%AF%9D%E6%89%8B%E8%A1%A8&enc=utf-8"},
+            {"title": "破壁机", "href": "//search.jd.com/Search?keyword=%E7%87%83%E6%B0%94%E5%A3%81%E6%8C%82%E7%82%89&enc=utf-8"},
+            {"title": "苏泊尔无烟锅", "href": "//search.jd.com/Search?keyword=%E7%87%83%E6%B0%94%E7%83%AD%E6%B0%B4%E5%99%A8&enc=utf-8"},
+            {"title": "风信子种球", "href": "//search.jd.com/Search?keyword=%E7%AF%AE%E7%90%83%E9%9E%8B&enc=utf-8"},
+            {"title": "多功能仰卧板", "href": "//search.jd.com/Search?keyword=%E7%8B%AC%E8%BD%AE%E5%B9%B3%E8%A1%A1%E8%BD%A6&enc=utf-8"}
+          ]
+        },
+        {
+          "id": "item10",
+          "href": "//item.jd.com/10057564223398.html",
+          "src": "//img14.360buyimg.com/jdcms/s150x150_jfs/t1/54440/33/19430/64633/62bd1c8eE1b499f9f/0190e8ddafd83b57.jpg.avif",
+          "title": "蕉色无磁不锈钢中宝鸣音水壶,家用小水壶电磁炉燃气煤气 4L加厚款",
+          "price": 27.85
+        },
+        {
+          "id": "item11",
+          "href": "//item.jd.com/10047513845039.html",
+          "src": "//img14.360buyimg.com/jdcms/s150x150_jfs/t1/216630/8/21640/141548/6346c26aE4c92b0f6/0cae105beafa9e16.jpg.avif",
+          "title": "【十年包换 上门安装】史密斯.劳伦速热电热水器电器家用洗澡扁桶双胆大容量80升恒温 【60升扁桶双胆】触屏遥控+出水断电+3200W 一级能效",
+          "price": 1599.00
+        },
+        {
+          "id": "item12",
+          "href": "//item.jd.com/10057752256605.html",
+          "src": "//img14.360buyimg.com/jdcms/s150x150_jfs/t1/126369/8/27620/189556/62483712E630c75db/9e0d768d9cda8032.jpg.avif",
+          "title": "卉亿新品茶宠摆件 抖音同款变色荔枝茶玩物精品可养玩创意个性浇水茶具配件 大吉大利(3粒)",
+          "price": 15.25
+        },
+        {
+          "id": "item13",
+          "href": "//item.jd.com/100036139418.html",
+          "src": "//img30.360buyimg.com/jdcms/s150x150_jfs/t1/144450/11/30377/88299/63440358E74b4611b/641a1687d23a5c76.jpg.avif",
+          "title": "vivo Pad 平板电脑 8GB+128GB 天蓝色 高通骁龙870 航空铝一体化机身120Hz超感原色屏 44W疾速闪充",
+          "price": 2499.00,
+          "info": "self"
+        },
+        {
+          "id": "item14",
+          "href": "//item.jd.com/10058702393719.html",
+          "src": "//img14.360buyimg.com/jdcms/s150x150_jfs/t1/199295/21/19331/103039/61ab2e52E088cada0/44d7811b18cab2c0.jpg.avif",
+          "title": "朗诗恒华闹钟学生闹铃简约ins宿舍可充电夜光数字电子闹铃智能时钟表 白色夜光基础款 无贴纸",
+          "price": 22.00
+        },
+        {
+          "id": "item15",
+          "href": "//item.jd.com/100008738507.html",
+          "src": "//img12.360buyimg.com/jdcms/s150x150_jfs/t1/169351/22/31064/131069/634a1b96E58174385/5de876cec74e1b46.jpg.avif",
+          "title": "西门子(SIEMENS)洗烘套装 10kg除菌滚筒洗衣机+9kg进口热泵烘干机家用WM12P2602W+WT47W5601W 以旧换新",
+          "price": 10499.00,
+          "info": "self"
+        },
+        {
+          "id": "item16",
+          "href": "//item.jd.com/10043987128963.html",
+          "src": "//img14.360buyimg.com/jdcms/s150x150_jfs/t1/69502/29/21710/133032/633f724bE3d53f7f2/b2ca5d6b9fb0a20d.png.avif",
+          "title": "逸卡 赤锋无骨雨刷器雨刮器雨刮片 适用于99%的车型速腾别克英朗卡罗拉朗逸迈腾凯美瑞福克斯 赤锋雨刷一对装【3年免费换胶条】",
+          "price": 64.00
+        },
+        {
+          "id": "item17",
+          "href": "//item.jd.com/100038654986.html",
+          "src": "//img12.360buyimg.com/jdcms/s150x150_jfs/t1/203412/30/17233/44567/63355973E5c0c0599/93375480ee58ff3d.jpg.avif",
+          "title": "科大讯飞录音降噪会议耳机iFLYBUDS Pro 无线蓝牙耳机 主动降噪 入耳式 超长续航 录音转文字苹果华为通用",
+          "price": 899.00,
+          "info": "self"
+        },
+        {
+          "id": "item18",
+          "href": "//item.jd.com/10059155073241.html",
+          "src": "//img12.360buyimg.com/jdcms/s150x150_jfs/t1/212442/22/20020/135223/62bb1c17E6b20098b/b1129fa63fab9652.jpg.avif",
+          "title": "汽车顶棚布脱落翻新车顶修复内饰改装AB柱门板更换原车布料带海绵 格子米色半米",
+          "price": 25.74
+        },
+        {
+          "id": "item19",
+          "href": "//item.jd.com/10059153387310.html",
+          "src": "//img13.360buyimg.com/jdcms/s150x150_jfs/t1/143376/2/23473/133967/61aaf0a3E3a76a085/112228851a45a5b1.jpg.avif",
+          "title": "汽车鲨鱼鳍天线带信号收音鲨鱼天线车顶改装车用天线装饰通用型 带信号收音天线-【黑色】",
+          "price": 21.78
+        },
+        {
+          "id": "item20",
+          "href": "//item.jd.com/10057604509471.html",
+          "src": "//img30.360buyimg.com/jdcms/s150x150_jfs/t17380/56/1830869525/50801/48f768f5/5adae379N73670332.jpg.avif",
+          "title": "蕉色5000ml毫升塑料量杯 量筒 烧杯 带刻度容量瓶5L量杯家用商用烘焙工具diy糕点工具自制饮料 制饮料量杯",
+          "price": 28.89
+        },
+        {
+          "id": "shop1",
+          "class": "shop",
+          "href": "//haodian.jd.com?shopid=1000001402&sid=01411270&skus=100029109281&source=pcfeeds",
+          "src": "//img20.360buyimg.com/mobilecms/jfs/t1/139968/24/30339/83861/63490b1eE7fbfa7e2/02cc385ac1f04af6.jpg.avif",
+          "self": true,
+          "follows": 8070000,
+          "title": "老板电器京东自营旗舰店"
+        },
+        {
+          "id": "item21",
+          "href": "//item.jd.com/10033643320238.html",
+          "src": "//img20.360buyimg.com/jdcms/s150x150_jfs/t1/189085/13/12321/150563/60e83af0E748fba29/fd57d4d263dd8611.jpg.avif",
+          "title": "焦色快速电热水壶配件电水壶底座温控器温控开关连接器耦合器插座一套",
+          "price": 22.40
+        },
+        {
+          "id": "item22",
+          "href": "//item.jd.com/10057189069087.html",
+          "src": "//img10.360buyimg.com/jdcms/s150x150_jfs/t1/185666/38/14889/174909/60f7761aE770b19cb/80dd550c6212b408.jpg.avif",
+          "title": "蕉色304加厚不锈钢奶锅小煮锅煮面泡面家用锅电磁炉燃气通用汤锅小锅 16CM单底奶锅",
+          "price": 17.90
+        },
+        {
+          "id": "item23",
+          "href": "//item.jd.com/100021974526.html",
+          "src": "//img11.360buyimg.com/jdcms/s150x150_jfs/t1/177331/1/4534/64000/60a1e5acE5b0b7c2f/dcac714a12813103.jpg.avif",
+          "title": "宝桑园 bosun 100%桑葚黑枸杞复合果浆30ml*10袋 礼盒装 新老包装随机发货",
+          "price": 69.00,
+          "pricePlus": 61.80,
+          "info": "chosen"
+        },
+        {
+          "id": "item24",
+          "href": "//item.jd.com/10059159386651.html",
+          "src": "//img10.360buyimg.com/jdcms/s150x150_jfs/t1/147691/21/19092/142814/5fdef9c8E1d300ff5/09c8d281c02d6d5b.jpg.avif",
+          "title": "2020款荣威RX5 PLUS钥匙套rx5max/i6/i5/360/350/rx3/rx8钥匙扣 荣威B款折叠三键 夜光红线",
+          "price": 25.74
+        },
+        {
+          "id": "item25",
+          "href": "//item.jd.com/100025745420.html",
+          "src": "//img12.360buyimg.com/jdcms/s150x150_jfs/t1/210671/4/26584/48189/63457423Ebc03330c/4deaaa95f100267d.jpg.avif",
+          "title": "戴森 DYSON V15 Detect Total Clean Extra手持无线吸尘器 除螨宠物家庭适用",
+          "price": 5490.00,
+          "info": "self"
+        },
+        {
+          "id": "item26",
+          "href": "//item.jd.com/10057607244146.html",
+          "src": "//img11.360buyimg.com/jdcms/s150x150_jfs/t1/183441/19/16936/227435/610602f8E222b3a90/e279c8802e0b3713.jpg.avif",
+          "title": "蕉色304不锈钢加厚茶夹金属镊子防烫手茶杯夹子功夫茶具夹茶道配件 304加厚茶夹 加厚茶夹",
+          "price": 15.19
+        },
+        {
+          "id": "item27",
+          "href": "//item.jd.com/100038433632.html",
+          "src": "//img12.360buyimg.com/jdcms/s150x150_jfs/t1/144542/14/30136/80530/63212f6dE6eb2bfd9/e4d690a0d3e2644a.jpg.avif",
+          "title": "科罗娜（Corona）海盐番石榴啤酒 果啤 275ml*24瓶 露营酒 整箱装",
+          "price": 248.00,
+          "info": "self"
+        }
+      ],
+      [],
+      [],
+      [],
+      [],
+      []
+    ]
+  }
 }

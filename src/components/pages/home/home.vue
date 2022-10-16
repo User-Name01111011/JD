@@ -39,6 +39,7 @@
 		<Seckill/>
 		<spec/>
 		<channels/>
+		<Recommend/>
 	</main>
 </template>
 
@@ -49,6 +50,7 @@ import Fs from './fs.vue'
 import Seckill from './seckill.vue';
 import spec from './spec.vue'
 import channels from './channels.vue'
+import Recommend from './recommend.vue';
 
 import { promotionalTop } from './home.json'
 
@@ -223,6 +225,7 @@ function toTop(){
 	}
 	.back-top {
 		display: none;
+		color: #e1251b;
 	}
 		@-webkit-keyframes eleShow {
 			0% {
