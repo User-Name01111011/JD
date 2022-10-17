@@ -23,24 +23,25 @@
 					</symbol>
 				</defs>
 			</svg>
-			<li :class="{active: elevatorIndex == 0}" @click="toSeckill">京东秒杀</li>
-			<li :class="{active: elevatorIndex == 1}" @click="toSpec">特色优选</li>
-			<li :class="{active: elevatorIndex == 2}" @click="toChannels">频道广场</li>
-			<li :class="{active: elevatorIndex == 3}" @click="toRecommend">为你推荐</li>
+			<li :class="{active: elevatorIndex == 0}" @click="toScroll('.seckill')">京东秒杀</li>
+			<li :class="{active: elevatorIndex == 1}" @click="toScroll('.spec')">特色优选</li>
+			<li :class="{active: elevatorIndex == 2}" @click="toScroll('.channels')">频道广场</li>
+			<li :class="{active: elevatorIndex == 3}" @click="toScroll('.recommend')">为你推荐</li>
 			<li><svg>
 					<use xlink:href="#icon_timline"></use>
 				</svg>客服</li>
 			<li><svg>
 					<use xlink:href="#icon_feedback"></use>
 				</svg>反馈</li>
-			<li @click="toTop" class="back-top"><span class="elevator-totop-icon"></span>顶部</li>
+			<li @click="toScroll('body')" class="back-top"><span class="elevator-totop-icon"></span>顶部</li>
 		</ul>
 		<Fs/>
 		<Seckill/>
-		<spec/>
+		<spec :is-request="isRequest.spec"/>
 		<channels/>
-		<Recommend/>
+		<Recommend :scroll-y="scrollY"/>
 	</main>
+	<Foot/>
 </template>
 
 <script setup>
@@ -51,6 +52,7 @@ import Seckill from './seckill.vue';
 import spec from './spec.vue'
 import channels from './channels.vue'
 import Recommend from './recommend.vue';
+import Foot from './foot.vue'
 
 import { promotionalTop } from './home.json'
 
@@ -60,50 +62,28 @@ let isPromotionalTop = ref(true)
 
 const scrollY = ref(0)
 const elevatorIndex = ref(-1)
+const isRequest = reactive({
+	spec: false,
+	channels: false,
+	recommend: false
+})
 window.onscroll = ()=>{
 	scrollY.value = window.pageYOffset
-	if(scrollY.value < 690){
+	if(scrollY.value > 100 && scrollY.value < 690){
+		isRequest.spec = true
 		elevatorIndex.value = -1
 	}else if(scrollY.value < 970){
 		elevatorIndex.value = 0
-	}else if(scrollY.value < 990){
+	}else if(scrollY.value < 1970){
 		elevatorIndex.value = 1
-	}else if(scrollY.value < 1000){
+	}else if(scrollY.value < 2995){
 		elevatorIndex.value = 2
 	}else{
 		elevatorIndex.value = 3
 	}
 }
-function toSeckill(){
-	document.querySelector(".seckill").scrollIntoView({
-		behavior: "smooth",
-		block: "start",
-		inline: "nearest"
-	})
-}
-function toSpec(){
-	document.querySelector(".spec").scrollIntoView({
-		behavior: "smooth",
-		block: "start",
-		inline: "nearest"
-	})
-}
-function toChannels(){
-	document.querySelector(".channels").scrollIntoView({
-		behavior: "smooth",
-		block: "start",
-		inline: "nearest"
-	})
-}
-function toRecommend(){
-	document.querySelector(".recommend").scrollIntoView({
-		behavior: "smooth",
-		block: "start",
-		inline: "nearest"
-	})
-}
-function toTop(){
-	document.querySelector("body").scrollIntoView({
+function toScroll(target){
+	document.querySelector(target).scrollIntoView({
 		behavior: "smooth",
 		block: "start",
 		inline: "nearest"

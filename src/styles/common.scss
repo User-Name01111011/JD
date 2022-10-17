@@ -21,7 +21,6 @@ a:hover {
 @mixin wrapper {
   width: 1190px;
   padding: 0 calc(50% - 595px);
-  ;
 }
 
 @mixin flex-wrap {

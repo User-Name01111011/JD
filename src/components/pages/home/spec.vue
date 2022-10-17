@@ -194,16 +194,15 @@
 <script setup>
 import { spec } from './home.json'
 
-import { reactive, onMounted, ref, computed } from 'vue'
+import { reactive, onMounted, ref, computed, watch } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay, Navigation } from 'swiper'
 import anime from 'animejs'
 
 import 'swiper/scss'
 
-let nowTime = new Date().getTime()
-let lastTime = new Date(spec.lightningBuy[0].extra).setHours(0)
-let countdown, countdownTime = computed(()=>{
+let nowTime, lastTime, countdown = reactive({d: 0,h: 0,m: 0,s: 0}), 
+countdownTime = computed(()=>{
   if(Math.floor((lastTime - nowTime)/1000)/86400 > 1){
     return countdown.value + '天'
   }else{
@@ -212,41 +211,45 @@ let countdown, countdownTime = computed(()=>{
     ":"+(countdown.s < 10 ? '0' + countdown.s:countdown.s)
   }
 })
-if(lastTime - nowTime < 1){
-//重新请求品牌闪购,重置lightningBuy数据
-}else if(Math.floor((lastTime - nowTime)/1000)/86400 > 1){
-  countdown = ref(Math.trunc(Math.floor((lastTime - nowTime)/1000)/86400))
-}else {
-  countdown = reactive({
-    h: Math.floor(Math.floor((lastTime - nowTime)/1000)/3600),
-    m: Math.floor(Math.floor((lastTime - nowTime)/1000)/60%60),
-    s: Math.floor(Math.floor((lastTime - nowTime)/1000)%60)
-  })
-  setInterval(() => {
-    if (countdown.s > 0) countdown.s--
-    else if (countdown.m > 0) {
-      countdown.m--
-      countdown.s = 59
-    } else if (countdown.h > 0) {
-      countdown.h--
-      countdown.m = 59
-      countdown.s = 59
-    } else {
-      countdown.s = 0
-      // fetch 请求下一场品牌闪购,重置lightningBuy数据
-    }
-  }, 1000)
-}
 
-let swiperOptions = reactive({
-  Scrollbar: {
-    draggable: true,
-    snapOnRelease: false,
-    dragSize: 99,
-  },
+const props = defineProps(['isRequest'])
+watch(()=>props.isRequest, ()=>{
+  if(props.isRequest){
+    // axios
+    nowTime = new Date().getTime()
+    lastTime = new Date(spec.lightningBuy[0].extra).setHours(0)
+    if(lastTime - nowTime < 1){
+    //重新请求品牌闪购,重置lightningBuy数据
+    }else if(Math.floor((lastTime - nowTime)/1000)/86400 > 1){
+      countdown.d = Math.trunc(Math.floor((lastTime - nowTime)/1000)/86400)
+    }else {
+      countdown.h = Math.floor(Math.floor((lastTime - nowTime)/1000)/3600)
+      countdown.d = Math.floor(Math.floor((lastTime - nowTime)/1000)/60%60)
+      countdown.s = Math.floor(Math.floor((lastTime - nowTime)/1000)%60)
+      setInterval(() => {
+        if (countdown.s > 0) countdown.s--
+        else if (countdown.m > 0) {
+          countdown.m--
+          countdown.s = 59
+        } else if (countdown.h > 0) {
+          countdown.h--
+          countdown.m = 59
+          countdown.s = 59
+        } else {
+          countdown.s = 0
+          // fetch 请求下一场品牌闪购,重置lightningBuy数据
+        }
+      }, 1000)
+    }
+    console.log(countdown)
+  }
+  
+})
+
+let swiperOptions = {
   slidesPerView: 'auto',
   spaceBetween: 50,
-})
+}
 
 let swiperAnime, swiperScrollbar
 
@@ -272,8 +275,7 @@ onMounted(()=>{
   })
 })
 
-
-let newArrivalSwiperOptions = reactive({
+let newArrivalSwiperOptions = {
   slidesPerView: 'auto',
   centeredSlides: true,
   autoplay: {
@@ -283,9 +285,9 @@ let newArrivalSwiperOptions = reactive({
   loopedSlides: 10,
   navigation: true,
   speed: 600
-})
+}
 
-let newArrivalSwiperModules = reactive([Autoplay, Navigation])
+let newArrivalSwiperModules = [Autoplay, Navigation]
 
 let joyIndex = ref(1)
 </script>
