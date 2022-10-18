@@ -64,25 +64,40 @@
         </a>
       </li>
     </ul>
-    <div class="loading"><em></em><em></em><em></em></div>
+    <div v-show="bodyPage[tabIndex] = maxPage" class="loading"><em></em><em></em><em></em></div>
   </div>
 </template>
 
 <script setup>
-import { ref,computed, reactive } from 'vue'
+import { ref,computed, reactive, watch } from 'vue'
 import { recommend } from './home.json'
 
 let tabIndex = ref(0)
+let tabBodys, maxPage = 5
+const bodyPage = reactive([0, 0 ,0, 0, 0, 0])
 
-const props = defineProps(['scrollY'])
+const props = defineProps(['scrollY', 'isRequest'])
+watch(()=>props.isRequest, ()=>{
+  if(props.isRequest){
+    //todo axios
+    bodyPage[tabIndex] = 1
+  }
+})
+watch(()=>props.scrollY, ()=>{
+  if(props.scrollY > 4555 + 1670 * bodyPage[tabIndex.value]){
+    //todo axios
+    // tabBodys.push(...axiosRequest)
+    // bodyPage[tabIndex.value]++
+  }
+})
 
 function tabClick(id, index){
-  if(recommend.tabBody[index].length){
+  if(recommend.tabBody[index].length < 1){
     //axios
   }
   tabIndex.value = index
 }
-let tabBodys = reactive(recommend.tabBody)
+tabBodys = reactive(recommend.tabBody)
 const data = [{
           "id": "item101",
           "href": "//item.jd.com/100021168937.html",

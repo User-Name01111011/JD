@@ -21,7 +21,14 @@ export default defineConfig({
     }]
   },
   server: {
-    open: true
+    open: true,
+    proxy: {
+      '/api': {
+        target: 'http://43.138.87.171//JDdata/',
+        changeOrigin: true,
+        rewrite: (path)=>path.replace(/^\/api/, '')
+      }
+    }
   },
   plugins: [vue()]
 })

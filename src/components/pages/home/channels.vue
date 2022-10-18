@@ -21,8 +21,15 @@
 </template>
 
 <script setup>
+import { reactive, watch } from 'vue'
 import { channels } from './home.json'
 
+const props = defineProps(['scrollY'])
+watch(()=>props.scrollY, ()=>{
+  if(props.scrollY){
+    //todo axios
+  }
+})
 </script>
 
 <style lang="scss" scoped>

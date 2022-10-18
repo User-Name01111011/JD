@@ -33,17 +33,17 @@
           </a>
         </div>
         <div class="body">
-          <a :href="spec.lightningBuy[0].href" target="_blank" class="goods-core">
-            <img class="logo" :src="spec.lightningBuy[0].src" alt="">
-            <h6 class="name">{{spec.lightningBuy[0].name}}</h6>
+          <a :href="spec?.lightningBuy?.slice(0, 1)[0]?.href" target="_blank" class="goods-core">
+            <img class="logo" :src="spec?.lightningBuy?.slice(0, 1)[0]?.src" alt="">
+            <h6 class="name">{{spec?.lightningBuy?.slice(0, 1)[0]?.name}}</h6>
             <div class="desc">
-              <span class="promo">低至{{spec.lightningBuy[0].promo}}元</span>
+              <span class="promo">低至{{spec?.lightningBuy?.slice(0, 1)[0]?.promo}}元</span>
               <span class="extra">仅剩<span class="day">{{countdownTime}}</span></span>
             </div>
-            <img class="goods" :src="spec.lightningBuy[0].goodsSrc" alt="">
+            <img class="goods" :src="spec?.lightningBuy?.slice(0, 1)[0]?.goodsSrc" alt="">
           </a>
           <div class="goods-other-list">
-            <a v-for="item of spec.lightningBuy.slice(1, 7)" :href="item.href" class="item">
+            <a v-for="item of spec.lightningBuy?.slice(1, 7)" :href="item.href" class="item">
               <img :src="item.src" alt="" class="logo">
               <h6 class="name">{{item.name}}</h6>
             </a>
@@ -71,7 +71,7 @@
           </a>
         </SwiperSlide>
         <SwiperSlide
-          v-for="slide of spec.niceGood.slice(0, 5)">
+          v-for="slide of spec.niceGood?.slice(0, 5)">
           <a :href="slide.href" target="_blank">
             <img class="icon" :src="slide.src" alt="">
             <p class="name">{{slide.title}}</p>
@@ -192,16 +192,16 @@
 </template>
 
 <script setup>
-import { spec } from './home.json'
-
 import { reactive, onMounted, ref, computed, watch } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay, Navigation } from 'swiper'
 import anime from 'animejs'
 
+import { getSpec } from './homeAxios'
+
 import 'swiper/scss'
 
-let nowTime, lastTime, countdown = reactive({d: 0,h: 0,m: 0,s: 0}), 
+let spec = ref({}), nowTime, lastTime, countdown = reactive({d: 0,h: 0,m: 0,s: 0}), 
 countdownTime = computed(()=>{
   if(Math.floor((lastTime - nowTime)/1000)/86400 > 1){
     return countdown.value + '天'
@@ -212,12 +212,30 @@ countdownTime = computed(()=>{
   }
 })
 
+let swiperAnime, swiperScrollbar
+
 const props = defineProps(['isRequest'])
+
 watch(()=>props.isRequest, ()=>{
   if(props.isRequest){
-    // axios
+    getSpec()
+    .then((res)=>{
+      spec.value = res.data.spec
+    })
+    .catch((error)=>{
+      if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else if (error.request) {
+        console.log(error.request);
+      } else {
+        console.log('Error', error.message);
+      }
+      console.log(error.config);
+    })
     nowTime = new Date().getTime()
-    lastTime = new Date(spec.lightningBuy[0].extra).setHours(0)
+    lastTime = new Date(spec.lightningBuy?.slice(0, 1)?.extra).setHours(0)
     if(lastTime - nowTime < 1){
     //重新请求品牌闪购,重置lightningBuy数据
     }else if(Math.floor((lastTime - nowTime)/1000)/86400 > 1){
@@ -241,17 +259,22 @@ watch(()=>props.isRequest, ()=>{
         }
       }, 1000)
     }
-    console.log(countdown)
+    swiperScrollbar = document.querySelector(".nice-good-swiper .swiper-scrollbar")
+    swiperAnime = anime({
+      targets: ".nice-good-swiper .swiper-wrapper",
+      translateX: -2000,
+      loop: true,
+      autoplay: true,
+      easing: 'linear',
+      duration: 40000
+    })
   }
-  
 })
 
 let swiperOptions = {
   slidesPerView: 'auto',
   spaceBetween: 50,
 }
-
-let swiperAnime, swiperScrollbar
 
 function swiperPause(){
   swiperAnime.pause()
@@ -264,15 +287,6 @@ function swiperScrollbarInput(e){
   swiperAnime.seek(swiperAnime.duration * (e.target.value / 100))
 }
 onMounted(()=>{
-  swiperScrollbar = document.querySelector(".nice-good-swiper .swiper-scrollbar")
-  swiperAnime = anime({
-    targets: ".nice-good-swiper .swiper-wrapper",
-    translateX: -2000,
-    loop: true,
-    autoplay: true,
-    easing: 'linear',
-    duration: 40000
-  })
 })
 
 let newArrivalSwiperOptions = {

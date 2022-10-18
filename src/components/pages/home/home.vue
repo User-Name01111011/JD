@@ -39,7 +39,7 @@
 		<Seckill/>
 		<spec :is-request="isRequest.spec"/>
 		<channels/>
-		<Recommend :scroll-y="scrollY"/>
+		<Recommend :scroll-y="scrollY" :is-request="isRequest.recommend"/>
 	</main>
 	<Foot/>
 </template>
@@ -75,13 +75,15 @@ window.onscroll = ()=>{
 	}else if(scrollY.value < 970){
 		elevatorIndex.value = 0
 	}else if(scrollY.value < 1970){
+		if(scrollY.value > 1138) isRequest.channels = true
 		elevatorIndex.value = 1
 	}else if(scrollY.value < 2995){
+		if(scrollY.value < 2163)isRequest.recommend = true
 		elevatorIndex.value = 2
 	}else{
 		elevatorIndex.value = 3
 	}
-}
+} 
 function toScroll(target){
 	document.querySelector(target).scrollIntoView({
 		behavior: "smooth",
