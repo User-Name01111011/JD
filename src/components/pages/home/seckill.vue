@@ -78,7 +78,7 @@ const modules = [Navigation]
   height: 260px;
   margin-bottom: 20px;
   background: {
-    image: linear-gradient(180deg, transparent 70px,#fff 70px, #fff 100%);
+    image: linear-gradient(180deg, transparent 72px,#fff 72px, #fff 100%);
   }
 }
 

@@ -2,7 +2,7 @@
   <div class="channels">
     <h3 class="floorhd">频道广场</h3>
     <div class="list">
-      <a v-for="itemB of channels.slice(0, 2)" class="item-b" :href="itemB.href" target="_blank">
+      <a v-for="itemB of channels?.slice(0, 2)" class="item-b" :href="itemB.href" target="_blank">
         <img :src="itemB.src" alt="">
       </a>
       <div v-for="(itemS, index) of channels.slice(2)" class="item-s" :style="{order: index}">
@@ -21,13 +21,30 @@
 </template>
 
 <script setup>
-import { reactive, watch } from 'vue'
-import { channels } from './home.json'
+import { ref, watch } from 'vue'
+import { getChannels } from "./homeAxios";
+// import { channels } from './home.json'
 
-const props = defineProps(['scrollY'])
-watch(()=>props.scrollY, ()=>{
-  if(props.scrollY){
-    //todo axios
+let channels = ref([])
+const props = defineProps(['scrollY', 'isRequest'])
+watch(()=>props.isRequest, ()=>{
+  if(props.isRequest){
+    getChannels()
+    .then((res)=>{
+      channels.value = res.data.channels
+    })
+    .catch((error)=>{
+      if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else if (error.request) {
+        console.log(error.request);
+      } else {
+        console.log('Error', error.message);
+      }
+      console.log(error.config);
+    })
   }
 })
 </script>

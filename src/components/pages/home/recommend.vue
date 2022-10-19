@@ -2,17 +2,21 @@
   <div class="recommend">
     <h3 class="floorhd">为你推荐</h3>
     <ul class="tab-hd">
-      <li v-for="(tabHead, index) of recommend.tabHead"
-        @click="tabClick(tabHead.id, index)"
-        :class="{active: tabIndex == index}"
-        class="item">
+      <li v-for="(tabHead, index) of recommend.tabHead" @click="tabClick(tabHead.id, index)"
+        :class="{active: tabIndex == index}" class="item">
+        <p class="title">{{tabHead.title}}</p>
+        <p class="desc">{{tabHead.desc}}</p>
+      </li>
+    </ul>
+    <ul class="tab-hd-fix" v-show="scrollY > 3190">
+      <li v-for="(tabHead, index) of recommend.tabHead" @click="tabClick(tabHead.id, index)"
+        :class="{active: tabIndex == index}" class="item">
         <p class="title">{{tabHead.title}}</p>
         <p class="desc">{{tabHead.desc}}</p>
       </li>
     </ul>
     <ul class="tab-bd">
-      <li v-for="(tabBody, index) in tabBodys[tabIndex]"
-        :key="tabBody.id"
+      <li v-for="(tabBody, index) in recommend.tabBody[tabIndex]" :key="tabBody.id"
         :class="[{'item': !tabBody.class}, tabBody.class]">
         <a v-if="!tabBody.class" :href="tabBody.href" target="_blank">
           <img :src="tabBody.src" alt="">
@@ -20,26 +24,30 @@
             <p class="name">
               <i v-if="tabBody.info == 'self'" class="self">自营</i>
               <i v-if="tabBody.info == 'chosen'" class="chosen"></i>
-              {{tabBody.title}}</p>
+              {{tabBody.title}}
+            </p>
             <div class="price-info">
               <p class="price">
                 <span class="dollar">¥</span>
-                <span class="num">{{Math.trunc(tabBody.price)}}.<span class="decimal">{{(tabBody.price * 100).toString().slice(-2)}}</span>
+                <span class="num">{{Math.trunc(tabBody.price)}}.<span class="decimal">{{(tabBody.price *
+                100).toString().slice(-2)}}</span>
                 </span>
               </p>
               <p v-if="(typeof tabBody.pricePlus) == 'number'" class="price-plus">
                 <span class="dollar">¥</span>
-                <span class="num">{{Math.trunc(tabBody.pricePlus) + '.' + (tabBody.pricePlus * 100).toString().slice(-2)}}</span>
-                <div class="ico"></div>
+                <span class="num">{{Math.trunc(tabBody.pricePlus) + '.' + (tabBody.pricePlus *
+                100).toString().slice(-2)}}</span>
+              <div class="ico"></div>
               </p>
             </div>
           </div>
           <div v-if="!tabBody.isAfter" class="hover">
             <div @click.prevent="deleteItem(index)" class="delete"></div>
             <div class="find">
-              <div @click.prevent="loadMore($event, index)" class="find-btn">
-                <i class="ico"></i>找相似</div>
+              <div @click.prevent="loadMore($event, index, tabBody.id)" class="find-btn">
+                <i class="ico"></i>找相似
               </div>
+            </div>
           </div>
         </a>
         <a v-else-if="tabBody.class == 'hotwords'" :href="tabBody.href" target="_blank">
@@ -54,7 +62,8 @@
             <div class="tags">
               <div v-if="tabBody.num" class="tag">{{tabBody.num}}款商品</div>
               <div v-if="tabBody.self" class="tag">自营</div>
-              <div v-if="tabBody.follows" class="follows">{{tabBody.follows > 100000 ? Math.round(tabBody.follows / 1000) / 10 + '万' : tabBody.follows}}人关注</div>
+              <div v-if="tabBody.follows" class="follows">{{tabBody.follows > 100000 ? Math.round(tabBody.follows /
+              1000) / 10 + '万' : tabBody.follows}}人关注</div>
             </div>
             <p class="title">{{tabBody.title}}</p>
             <p v-if="tabBody.desc" class="desc">{{tabBody.desc}}</p>
@@ -64,95 +73,135 @@
         </a>
       </li>
     </ul>
-    <div v-show="bodyPage[tabIndex] = maxPage" class="loading"><em></em><em></em><em></em></div>
+    <div v-show="bodyPage[tabIndex] < maxPage" class="loading"><em></em><em></em><em></em></div>
   </div>
 </template>
 
 <script setup>
-import { ref,computed, reactive, watch } from 'vue'
-import { recommend } from './home.json'
+import { ref, computed, reactive, watch } from 'vue'
+import { getRecommend, getRecommendOther, getAddRecommend, getSimilarRecommend, getReplaceRecommend } from './homeAxios'
+// import { recommend } from './home.json'
 
 let tabIndex = ref(0)
-let tabBodys, maxPage = 5
-const bodyPage = reactive([0, 0 ,0, 0, 0, 0])
+let maxPage = 5
+let loading = false
+const bodyPage = reactive([0, 0, 0, 0, 0, 0])
+const recommend = ref({ tabHead: [], tabBody: [[],[],[],[],[],[]]})
 
 const props = defineProps(['scrollY', 'isRequest'])
-watch(()=>props.isRequest, ()=>{
-  if(props.isRequest){
-    //todo axios
-    bodyPage[tabIndex] = 1
-  }
-})
-watch(()=>props.scrollY, ()=>{
-  if(props.scrollY > 4555 + 1670 * bodyPage[tabIndex.value]){
-    //todo axios
-    // tabBodys.push(...axiosRequest)
-    // bodyPage[tabIndex.value]++
+
+watch(() => props.isRequest, () => {
+  if (props.isRequest) {
+    getRecommend()
+      .then((res) => {
+        recommend.value = res.data.recommend
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log('Error', error.message);
+        }
+        console.log(error.config);
+      })
   }
 })
 
-function tabClick(id, index){
-  if(recommend.tabBody[index].length < 1){
-    //axios
+let isThrottle = false
+watch(() => props.scrollY, () => {
+  if (props.isRequest && !isThrottle && bodyPage[tabIndex.value] < maxPage && props.scrollY > 2300 + (recommend.value.tabBody[tabIndex.value].length * 66.5)) {
+    isThrottle = true
+    getAddRecommend()
+      .then((res) => {
+        recommend.value.tabBody[tabIndex.value].push(...res.data)
+        isThrottle = false
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log('Error', error.message);
+        }
+        console.log(error.config);
+        isThrottle = false
+      })
+    bodyPage[tabIndex.value]++
   }
+})
+function tabClick(id, index) {
   tabIndex.value = index
-}
-tabBodys = reactive(recommend.tabBody)
-const data = [{
-          "id": "item101",
-          "href": "//item.jd.com/100021168937.html",
-          "src": "//img12.360buyimg.com/jdcms/s150x150_jfs/t1/201639/28/26831/156101/6347606cEceba72d6/a3af9baff189548b.jpg.avif",
-          "title": "增加1",
-          "price": 3899.00,
-          "pricePlus": 3799.00,
-          "info": "chosen",
-          "isAfter": true
-        },
-        {
-          "id": "item102",
-          "href": "//item.jd.com/10036349644371.html",
-          "src": "//img11.360buyimg.com/jdcms/s150x150_jfs/t1/103750/18/26847/88210/63423756Eb82fa145/9b19395dcf18ddb3.jpg.avif",
-          "title": "增加2",
-          "price": 199.00,
-          "isAfter": true
-        },
-        {
-          "id": "item103",
-          "href": "//item.jd.com/100016679587.html",
-          "src": "//img12.360buyimg.com/jdcms/s150x150_jfs/t1/201807/24/17135/108175/6347dba4E03702110/d0e80ba49ac0ade1.jpg.avif",
-          "title": "增加3",
-          "price": 28.80,
-          "info": "self",
-          "isAfter": true
-        },
-        {
-          "id": "item104",
-          "href": "//item.jd.com/10057457452505.html",
-          "src": "//img30.360buyimg.com/jdcms/s150x150_jfs/t1/174832/11/18990/117818/60e82d29Ee53e205b/88283d2e25778c8c.jpg.avif",
-          "title": "增加4",
-          "price": 11.37,
-          "isAfter": true
-        },
-        {
-          "id": "item105",
-          "href": "//item.jd.com/100020792840.html",
-          "src": "//img20.360buyimg.com/jdcms/s150x150_jfs/t1/133259/29/29201/53881/63457376Ecbdab0a5/ad6029be27e5528a.jpg.avif",
-          "title": "增加5",
-          "price": 2290.00,
-          "info": "self",
-          "isAfter": true
-        }]
-function loadMore(e, index){
-  if(e.target.className.indexOf('disabled') == -1){
-  //todu axios请求一行同类数据 data代替
-    e.target.className += ' disabled'
-    index == 0 && index++
-    tabBodys[tabIndex.value].splice(Math.ceil(index / 5) * 5, 0, ...data)
+  document.querySelector('.recommend .tab-hd').scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+    inline: "nearest"
+  })
+  if (!recommend.value.tabBody[index][0].id) {
+    getRecommendOther(index)
+      .then((res) => {
+        recommend.value.tabBody[tabIndex.value] = res.data
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log('Error', error.message);
+        }
+        console.log(error.config);
+      })
   }
 }
-function deleteItem(index){
-  //替换数据
-  tabBodys[tabIndex.value][index] = data[0]
+
+function loadMore(e, index, id) {
+  if (e.target.className.indexOf('disabled') == -1) {
+    getSimilarRecommend(id)
+      .then((res) => {
+        recommend.value.tabBody[tabIndex.value].splice(Math.ceil(index / 5) * 5, 0, ...res.data)
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log('Error', error.message);
+        }
+        console.log(error.config);
+      })
+    e.target.className += ' disabled'
+  }
+}
+
+function deleteItem(index) {
+  getReplaceRecommend()
+    .then((res) => {
+      recommend.value.tabBody[tabIndex.value][index] = res.data
+    })
+    .catch((error) => {
+      if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else if (error.request) {
+        console.log(error.request);
+      } else {
+        console.log('Error', error.message);
+      }
+      console.log(error.config);
+    })
 }
 </script>
 
@@ -161,11 +210,8 @@ function deleteItem(index){
   @include scroll-location;
 }
 
-.tab-hd {
+.tab-hd, .tab-hd-fix {
   display: flex;
-  padding: 0 55px;
-  background-color: #fff;
-  margin: 0 0 10px;
 
   .item {
     width: 180px;
@@ -201,6 +247,51 @@ function deleteItem(index){
       }
     }
   }
+}
+
+.tab-hd {
+  padding: {
+    top: 62px;
+    left: 55px;
+    right: 55px;
+  }
+  background: {
+    image: linear-gradient(transparent 62px, #fff 62px, #fff);
+  }
+  margin: -62px 0 10px;
+}
+
+@-webkit-keyframes FeedsTab {
+  0% {
+    top: -10px
+  }
+
+  to {
+    top: 52px
+  }
+}
+
+@keyframes FeedsTab {
+  0% {
+    top: -10px
+  }
+
+  to {
+    top: 52px
+  }
+}
+.tab-hd-fix {
+  justify-content: center;
+  position: fixed;
+  top: 52px;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: #fff;
+  -webkit-box-shadow: 2px 2px 2px rgb(0 0 0 / 20%);
+    box-shadow: 2px 2px 2px rgb(0 0 0 / 20%);
+    -webkit-animation: FeedsTab .5s ease-in-out;
+    animation: FeedsTab .5s ease-in-out;
 }
 
 .tab-bd {
@@ -457,6 +548,7 @@ function deleteItem(index){
       text-align: center;
 
     }
+
     ul {
       display: flex;
       flex-wrap: wrap;
@@ -494,14 +586,17 @@ function deleteItem(index){
         height: 150px;
         margin: 30px 40px 10px;
       }
+
       .info {
         margin: 0 20px;
+
         .title {
           margin-bottom: 5px;
           font-size: 14px;
           font-weight: 700;
           color: #333;
         }
+
         .tags {
           margin-bottom: 5px;
 
@@ -575,6 +670,7 @@ function deleteItem(index){
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
         }
+
         .tag {
           color: #7b20da;
           border: 1px solid #7b20da;
@@ -589,6 +685,7 @@ function deleteItem(index){
           line-height: 20px;
           color: #7b20da;
         }
+
         .btn {
           width: 81px;
           height: 24px;
@@ -602,33 +699,35 @@ function deleteItem(index){
 
 .loading {
   margin-bottom: 82px;
+
   @-webkit-keyframes loading {
-      0% {
-        opacity: 1
-      }
-  
-      50% {
-        opacity: .4
-      }
-  
-      to {
-        opacity: 1
-      }
+    0% {
+      opacity: 1
     }
-  
-    @keyframes loading {
-      0% {
-        opacity: 1
-      }
-  
-      50% {
-        opacity: .4
-      }
-  
-      to {
-        opacity: 1
-      }
+
+    50% {
+      opacity: .4
     }
+
+    to {
+      opacity: 1
+    }
+  }
+
+  @keyframes loading {
+    0% {
+      opacity: 1
+    }
+
+    50% {
+      opacity: .4
+    }
+
+    to {
+      opacity: 1
+    }
+  }
+
   em {
     display: block;
     width: 13px;
@@ -637,16 +736,19 @@ function deleteItem(index){
     border-radius: 50%;
     -webkit-animation: loading 2s linear infinite;
     animation: loading 2s linear infinite;
+
     &:nth-child(1) {
       background-color: rgb(88, 88, 87);
       -webkit-animation-delay: .5s;
       animation-delay: .5s;
     }
+
     &:nth-child(2) {
       background-color: rgb(150, 151, 150);
       -webkit-animation-delay: 1s;
       animation-delay: 1s;
     }
+
     &:nth-child(3) {
       background-color: rgb(209, 210, 208);
       -webkit-animation-delay: 1.5s;

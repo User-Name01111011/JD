@@ -7,7 +7,7 @@
 	<TopBar />
 	<HomeHeader :scroll-y="scrollY"/>
 	<main class="main">
-		<ul class="elevator" :class="{fix: scrollY >= 690}">
+		<ul class="elevator" :class="{fix: scrollY >= 690, 'fix-recom': scrollY > 3190}">
 			<svg class="svgcont" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 				style="display: none;">
 				<defs>
@@ -38,7 +38,7 @@
 		<Fs/>
 		<Seckill/>
 		<spec :is-request="isRequest.spec"/>
-		<channels/>
+		<channels :is-request="isRequest.channels"/>
 		<Recommend :scroll-y="scrollY" :is-request="isRequest.recommend"/>
 	</main>
 	<Foot/>
@@ -56,7 +56,7 @@ import Foot from './foot.vue'
 
 import { promotionalTop } from './home.json'
 
-import { reactive, ref } from 'vue'
+import { reactive, ref, onMounted } from 'vue'
 
 let isPromotionalTop = ref(true)
 
@@ -67,6 +67,32 @@ const isRequest = reactive({
 	channels: false,
 	recommend: false
 })
+
+onMounted(()=>{
+	scrollY.value = window.pageYOffset
+	if(scrollY.value < 690){
+		if(scrollY.value > 100) isRequest.spec = true
+		elevatorIndex.value = -1
+	}else if(scrollY.value < 970){
+		elevatorIndex.value = 0
+	}else if(scrollY.value < 1970){
+		if (scrollY.value > 1138) {
+			isRequest.channels = true
+			isRequest.spec = true
+		}
+		elevatorIndex.value = 1
+	}else if(scrollY.value < 2995){
+		if(scrollY.value > 2163){
+			isRequest.channels = true
+			isRequest.spec = true
+			isRequest.recommend = true
+		}
+		elevatorIndex.value = 2
+	}else{
+		elevatorIndex.value = 3
+	}
+})
+
 window.onscroll = ()=>{
 	scrollY.value = window.pageYOffset
 	if(scrollY.value > 100 && scrollY.value < 690){
@@ -78,7 +104,7 @@ window.onscroll = ()=>{
 		if(scrollY.value > 1138) isRequest.channels = true
 		elevatorIndex.value = 1
 	}else if(scrollY.value < 2995){
-		if(scrollY.value < 2163)isRequest.recommend = true
+		if(scrollY.value > 2163)isRequest.recommend = true
 		elevatorIndex.value = 2
 	}else{
 		elevatorIndex.value = 3
@@ -138,6 +164,8 @@ function toScroll(target){
 	top: 500px;
 	right: calc(50% - 673px);
 	z-index: 100;
+	-webkit-transition: -webkit-transform .5s ease;
+  transition: transform .5s ease,-webkit-transform .5s ease;
 
 	li {
 		position: relative;
@@ -236,6 +264,12 @@ function toScroll(target){
 		.back-top {
 			display: block;
 		}
+	}
+
+	&.fix-recom {
+		-webkit-transform: translateY(60px);
+    -ms-transform: translateY(60px);
+    transform: translateY(60px);
 	}
 }
 </style>
